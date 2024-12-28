@@ -9,64 +9,90 @@ class ToolDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
+      initState: (state) {
+        var controller = Get.find<HomeController>();
+        controller.basicToolsModel = null;
+        controller.basicToolsModel = Get.arguments;
+        controller.youtubePlayerController
+            .cueVideoById(videoId: controller.basicToolsModel?.video ?? "");
+      },
       builder: (controller) {
         return Scaffold(
           backgroundColor: ColorsValue.appBg,
-          appBar: AppBar(
-            title: Text(
-              'Tool',
-              style: Styles.whiteColorW70020,
+          appBar: PreferredSize(
+            preferredSize: Size(double.maxFinite, Dimens.sixty),
+            child: ScreenHeader(
+              onTap: () {
+                Get.back();
+              },
+              isVisible: true,
+              image: AssetConstants.back_arrow,
+              width: Dimens.thirty,
+              height: Dimens.thirty,
+              title: controller.basicToolsModel?.name ?? "",
+              txtStyle: Styles.whiteColorW70020,
             ),
-            centerTitle: true,
           ),
-          body: ListView(
-            padding: Dimens.edgeInsets20,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(
-                  Dimens.ten,
-                ),
-                child: YoutubePlayer(
-                  controller: controller.youtubePlayerController,
-                  backgroundColor: Colors.transparent,
-                ),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: Dimens.edgeInsets20,
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                      Dimens.ten,
+                    ),
+                    child: YoutubePlayer(
+                      controller: controller.youtubePlayerController,
+                      backgroundColor: Colors.transparent,
+                    ),
+                  ),
+                  Dimens.boxHeight10,
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount:
+                        controller.basicToolsModel?.toolsQuestion?.length,
+                    itemBuilder: (context, index) {
+                      var itemQue =
+                          controller.basicToolsModel?.toolsQuestion?[index];
+                      return Padding(
+                        padding: Dimens.edgeInsetsTopt10,
+                        child: Column(
+                          children: [
+                            Text(
+                              itemQue?.question ?? "",
+                              style: Styles.txtBlackColorW70020,
+                            ),
+                            Dimens.boxHeight15,
+                            Text(
+                              itemQue?.answer ?? "",
+                              style: Styles.txtBlackColorW40014,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                  Dimens.boxHeight10,
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.basicToolsModel?.steps?.length,
+                    itemBuilder: (context, index) {
+                      var itemStep = controller.basicToolsModel?.steps?[index];
+                      return Padding(
+                        padding: Dimens.edgeInsetsTopt10,
+                        child: Text(
+                          itemStep?.step ?? "",
+                          style: Styles.txtBlackColorW40014,
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
-              Dimens.boxHeight10,
-              Text(
-                "Introduction to Align Tool",
-                style: Styles.txtBlackColorW70020,
-              ),
-              Dimens.boxHeight10,
-              Text(
-                "The *Align Tool* in Adobe Illustrator allows you to align and distribute objects relative to each other, to an artboard, or to a key object. It provides options to align objects horizontally, vertically, or distribute them evenly. The tool ensures precision in layout and design, saving time while organizing objects. Accessible via the *Align panel* (Window > Align) or the control bar.",
-                style: Styles.txtBlackColorW40014,
-              ),
-              Dimens.boxHeight10,
-              Text(
-                "How to use Align Tool?",
-                style: Styles.txtBlackColorW70020,
-              ),
-              Dimens.boxHeight10,
-              Text(
-                "In Illustrator, access the align panel by clicking Window > Align (Shift + F7). In Design, access the align panel by clicking Window > Object & Layout > Align (Shift + F7). Tip: Drag the align panel to your windows panel to give you easy access to the alignment panel.",
-                style: Styles.txtBlackColorW40014,
-              ),
-              Dimens.boxHeight20,
-              Text(
-                "1.Select the objects to align or distribute.",
-                style: Styles.txtBlackColorW40014,
-              ),
-              Dimens.boxHeight10,
-              Text(
-                "2.Using the Selection tool, Shift-click on the artboard you want to use to activate it.",
-                style: Styles.txtBlackColorW40014,
-              ),
-              Dimens.boxHeight10,
-              Text(
-                "3.In the Align or Control panel, select Align To Artboard, then click the button for the type of alignment or distribution you want.",
-                style: Styles.txtBlackColorW40014,
-              )
-            ],
+            ),
           ),
         );
       },

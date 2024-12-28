@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:illustrator_guide/app/app.dart';
+import 'package:illustrator_guide/domain/domain.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class HomeController extends GetxController {
@@ -9,7 +9,9 @@ class HomeController extends GetxController {
 
   HomePresenter homePresenter;
 
-  var db = FirebaseFirestore.instance;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  late YoutubePlayerController youtubePlayerController;
+  int selectPage = 0;
 
   @override
   onInit() {
@@ -23,100 +25,19 @@ class HomeController extends GetxController {
         showFullscreenButton: true,
       ),
     );
-    youtubePlayerController.cueVideoById(videoId: 'FkYfwtIPMPo');
-    // youtubePlayerController.setFullScreenListener(
-    //   (value) {
-    //     if (value) {
-    //       SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    //       SystemChrome.setPreferredOrientations([
-    //         DeviceOrientation.landscapeLeft,
-    //         DeviceOrientation.landscapeRight,
-    //       ]);
-    //     } else {
-    //       // Exiting fullscreen
-    //       SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-    //       SystemChrome.setPreferredOrientations([
-    //         DeviceOrientation.portraitUp,
-    //         DeviceOrientation.portraitDown,
-    //       ]);
-    //     }
-    //   },
-    // );
-    youtubePlayerController.enterFullScreen();
   }
 
-  int selectIndex = 0;
-
-  List<String> strList = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "13",
+  List<String> bannerList = [
+    AssetConstants.banner_align_tool,
+    AssetConstants.banner_clipping_mask,
+    AssetConstants.banner_join_tool,
+    AssetConstants.banner_move_tool,
+    AssetConstants.banner_pathfinder,
+    AssetConstants.banner_pen_tool,
+    AssetConstants.banner_selection_tool,
+    AssetConstants.banner_shape_builder_tool,
+    AssetConstants.banner_type_tool,
   ];
-
-  /// ================================================ ToolDetailsScreen =============================================///
-
-  late YoutubePlayerController youtubePlayerController;
-
-  List<BasicToolObject> basicTool = [
-    BasicToolObject(imagePath: 'imagePath', toolName: 'toolName'),
-    BasicToolObject(imagePath: 'imagePath', toolName: 'toolName'),
-    BasicToolObject(imagePath: 'imagePath', toolName: 'toolName'),
-    BasicToolObject(imagePath: 'imagePath', toolName: 'toolName'),
-    BasicToolObject(imagePath: 'imagePath', toolName: 'toolName'),
-  ];
-  List<String> testList = ["fds", "Fsdf", "Fsdf"];
-  int selectPage = 0;
-
-  void getFirestoreData() {
-    final docRef = db.collection("Basic Tool List").doc("Tool List");
-    docRef.get().then(
-      (DocumentSnapshot doc) {
-        print(doc);
-      },
-      onError: (e) => print(
-        "Error getting document: $e",
-      ),
-    );
-  }
-
-  Widget commonBasicTool() {
-    return Padding(
-      padding: Dimens.edgeInsetsTop20,
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-        ),
-        itemBuilder: (context, index) => Padding(
-          padding: Dimens.edgeInsetsLeft10.copyWith(bottom: 10),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text("data"),
-                Dimens.boxHeight10,
-                const Text("data"),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
   Widget commonIntro() {
     return Padding(
@@ -148,14 +69,248 @@ class HomeController extends GetxController {
       ),
     );
   }
-}
 
-class BasicToolObject {
-  BasicToolObject({
-    required this.imagePath,
-    required this.toolName,
-  });
+  List<BasicToolsModel> basicToolDetilsList = [
+    BasicToolsModel(
+      icon: AssetConstants.move_tool,
+      name: 'move_tool'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: 'FkYfwtIPMPo',
+    ),
+    BasicToolsModel(
+      icon: AssetConstants.direct_selection_tool,
+      name: 'selection_tool'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: 'somEUTMlhKI',
+    ),
+    BasicToolsModel(
+      icon: AssetConstants.pen_tool,
+      name: 'pen_tool'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: '6YNce6GSjC4',
+    ),
+    BasicToolsModel(
+      icon: AssetConstants.join_tool,
+      name: 'join_tool'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: '_t-bDpf9tRw',
+    ),
+    BasicToolsModel(
+      icon: AssetConstants.ic_align,
+      name: 'align'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: 'FkYfwtIPMPo',
+    ),
+    BasicToolsModel(
+      icon: AssetConstants.pathfinder,
+      name: 'pathfinder'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: 'vqliIC8eID4',
+    ),
+    BasicToolsModel(
+      icon: AssetConstants.type_tool,
+      name: 'type_tool'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: 'aEtlyfpV_WM',
+    ),
+    BasicToolsModel(
+      icon: AssetConstants.ic_cliping_mask,
+      name: 'clipping_mask'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: 'AQ1WFyw1ve4',
+    ),
+    BasicToolsModel(
+      icon: AssetConstants.shape_builder_tool,
+      name: 'shape_builder_tool'.tr,
+      steps: [
+        Steps(
+          step: 'align_step1'.tr,
+        ),
+        Steps(
+          step: 'align_step2'.tr,
+        ),
+        Steps(
+          step: 'align_step3'.tr,
+        )
+      ],
+      toolsQuestion: [
+        ToolsQuestion(
+          question: 'align_que1'.tr,
+          answer: 'align_ans1'.tr,
+        ),
+        ToolsQuestion(
+          question: 'align_que2'.tr,
+          answer: 'align_ans2'.tr,
+        ),
+      ],
+      video: 'Jbq-iJFnK9g',
+    ),
+  ];
 
-  final String imagePath;
-  final String toolName;
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////// ToolDetailsScreen //////////////////////////////////////////////////
+
+  BasicToolsModel? basicToolsModel = BasicToolsModel();
 }

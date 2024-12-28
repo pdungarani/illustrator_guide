@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:illustrator_guide/app/app.dart';
+import 'package:illustrator_guide/app/widgets/Drower.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,42 +12,48 @@ class HomeScreen extends StatelessWidget {
     return GetBuilder<HomeController>(
       initState: (state) {
         var controller = Get.find<HomeController>();
-        controller.getFirestoreData();
       },
       builder: (controller) {
-        return DefaultTabController(
-          length: 2,
-          child: Scaffold(
-            backgroundColor: ColorsValue.whiteColor,
-            appBar: AppBar(
-              backgroundColor: ColorsValue.appColor,
-              title: Text(
-                "Home",
-                style: Styles.whiteColorW70020,
-              ),
-              centerTitle: true,
+        return Scaffold(
+          key: controller.scaffoldKey,
+          backgroundColor: ColorsValue.appBg,
+          drawer: AppDrower(),
+          appBar: PreferredSize(
+            preferredSize: Size(double.maxFinite, Dimens.sixty),
+            child: ScreenHeader(
+              isVisible: true,
+              onTap: () {
+                if (controller.scaffoldKey.currentState!.isDrawerOpen) {
+                  controller.scaffoldKey.currentState!.openEndDrawer();
+                } else {
+                  controller.scaffoldKey.currentState!.openDrawer();
+                }
+              },
+              image: AssetConstants.headerIcon,
+              width: Dimens.thirty,
+              height: Dimens.thirty,
+              title: "Home",
+              txtStyle: Styles.whiteColorW70020,
             ),
-            body: Padding(
-              padding: Dimens.edgeInsets20,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Explore More Tool",
-                    style: Styles.txtBlackColorW80016,
-                  ),
-                  Dimens.boxHeight10,
-                  SizedBox(
-                    height: Dimens.hundredEighty,
-                    child: PageView.builder(
-                      itemCount: controller.testList.length,
-                      onPageChanged: (value) {
-                        controller.selectPage = value;
-                        controller.update();
-                      },
-                      itemBuilder: (context, index) {
-                        return Container(
-                          height: Dimens.hundredEighty,
+          ),
+          body: Padding(
+            padding: Dimens.edgeInsets20,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: Dimens.twoHundred,
+                  child: PageView.builder(
+                    itemCount: controller.bannerList.length,
+                    onPageChanged: (value) {
+                      controller.selectPage = value;
+                      controller.update();
+                    },
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {},
+                        child: Container(
+                          height: Dimens.twoHundred,
                           decoration: BoxDecoration(
                             color: index == 1
                                 ? ColorsValue.appColor
@@ -54,252 +62,91 @@ class HomeScreen extends StatelessWidget {
                               Dimens.twenty,
                             ),
                           ),
-                        );
-                        // ClipRRect(
-                        //   borderRadius: BorderRadius.circular(
-                        //     Dimens.ten,
-                        //   ),
-                        //   child: Image.asset(
-                        //     AssetConstants.ic_sign_up,
-                        //   ),
-                        // );
-                      },
-                    ),
-                  ),
-
-                  Dimens.boxHeight20,
-                  TabBar(
-                    dividerColor: Colors.grey,
-                    indicatorColor: ColorsValue.lightYelloColor,
-                    overlayColor:
-                        WidgetStatePropertyAll(ColorsValue.whiteColor),
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    labelStyle: Styles.txtBlackColorW80016,
-                    indicator: UnderlineTabIndicator(
-                        borderSide: BorderSide(
-                          width: 4,
-                          color: ColorsValue.lightYelloColor,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                              Dimens.twenty,
+                            ),
+                            child: Image.asset(
+                              controller.bannerList[index],
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(20)),
-                    tabs: const [
-                      Tab(
-                        text: "Basic Tool",
-                      ),
-                      Tab(
-                        text: "Intro",
-                      ),
-                    ],
+                      );
+                    },
                   ),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        controller.commonBasicTool(),
-                        controller.commonIntro(),
-                      ],
+                ),
+                Dimens.boxHeight10,
+                Center(
+                  child: Wrap(
+                    children: controller.bannerList.asMap().entries.map((e) {
+                      return Padding(
+                        padding: Dimens.edgeInsetsLeft2,
+                        child: Container(
+                          width: Dimens.six,
+                          height: Dimens.six,
+                          decoration: BoxDecoration(
+                            color: controller.selectPage == e.key
+                                ? ColorsValue.appColor
+                                : ColorsValue.blue94A3B8,
+                            borderRadius: BorderRadius.circular(
+                              Dimens.hundred,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                Dimens.boxHeight30,
+                Expanded(
+                  child: GridView.builder(
+                    itemCount: controller.basicToolDetilsList.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: Dimens.eight,
+                      mainAxisSpacing: Dimens.eight,
+                    ),
+                    itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {
+                        RouteManagement.goToolDetailsScreen(
+                            controller.basicToolDetilsList[index]);
+                      },
+                      child: Container(
+                        padding: Dimens.edgeInsets5,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            Dimens.eight,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.3),
+                              blurRadius: 5.0,
+                              offset: Offset(0.0, 3.0),
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              controller.basicToolDetilsList[index].icon ?? "",
+                            ),
+                            Dimens.boxHeight10,
+                            Text(
+                              controller.basicToolDetilsList[index].name ?? "",
+                              style: Styles.txtBlackColorW70012,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     Text(
-                  //       'Basic Tool',
-                  //       style: Styles.appColorW70016,
-                  //     ),
-                  //     Text(
-                  //       'View All',
-                  //       style: Styles.appColorW50014,
-                  //     ),
-                  //   ],
-                  // ),
-                  // Dimens.boxHeight20,
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         controller.selectIndex = 0;
-                  //         controller.update();
-                  //         RouteManagement.goToolDetailsScreen();
-                  //       },
-                  //       child: Container(
-                  //         alignment: Alignment.center,
-                  //         height: Dimens.fifty,
-                  //         width: Dimens.fifty,
-                  //         decoration: BoxDecoration(
-                  //           color: controller.selectIndex == 0
-                  //               ? ColorsValue.appColor
-                  //               : Colors.transparent,
-                  //           borderRadius: BorderRadius.circular(
-                  //             Dimens.ten,
-                  //           ),
-                  //           border: Border.all(
-                  //             width: Dimens.one,
-                  //             color: ColorsValue.appColor,
-                  //           ),
-                  //         ),
-                  //         child: SvgPicture.asset(
-                  //           AssetConstants.ic_move_tool,
-                  //           colorFilter: ColorFilter.mode(
-                  //             controller.selectIndex == 0
-                  //                 ? ColorsValue.whiteColor
-                  //                 : ColorsValue.redColor,
-                  //             BlendMode.srcIn,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         controller.selectIndex = 1;
-                  //         controller.update();
-                  //       },
-                  //       child: Container(
-                  //         height: Dimens.fifty,
-                  //         width: Dimens.fifty,
-                  //         decoration: BoxDecoration(
-                  //           color: controller.selectIndex == 1
-                  //               ? ColorsValue.appColor
-                  //               : Colors.transparent,
-                  //           borderRadius: BorderRadius.circular(
-                  //             Dimens.ten,
-                  //           ),
-                  //           border: Border.all(
-                  //             width: Dimens.one,
-                  //             color: ColorsValue.appColor,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         controller.selectIndex = 2;
-                  //         controller.update();
-                  //       },
-                  //       child: Container(
-                  //         height: Dimens.fifty,
-                  //         width: Dimens.fifty,
-                  //         decoration: BoxDecoration(
-                  //           color: controller.selectIndex == 2
-                  //               ? ColorsValue.appColor
-                  //               : Colors.transparent,
-                  //           borderRadius: BorderRadius.circular(
-                  //             Dimens.ten,
-                  //           ),
-                  //           border: Border.all(
-                  //             width: Dimens.one,
-                  //             color: ColorsValue.appColor,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         controller.selectIndex = 3;
-                  //         controller.update();
-                  //       },
-                  //       child: Container(
-                  //         height: Dimens.fifty,
-                  //         width: Dimens.fifty,
-                  //         decoration: BoxDecoration(
-                  //           color: controller.selectIndex == 3
-                  //               ? ColorsValue.appColor
-                  //               : Colors.transparent,
-                  //           borderRadius: BorderRadius.circular(
-                  //             Dimens.ten,
-                  //           ),
-                  //           border: Border.all(
-                  //             width: Dimens.one,
-                  //             color: ColorsValue.appColor,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         controller.selectIndex = 4;
-                  //         controller.update();
-                  //       },
-                  //       child: Container(
-                  //         height: Dimens.fifty,
-                  //         width: Dimens.fifty,
-                  //         decoration: BoxDecoration(
-                  //           color: controller.selectIndex == 4
-                  //               ? ColorsValue.appColor
-                  //               : Colors.transparent,
-                  //           borderRadius: BorderRadius.circular(
-                  //             Dimens.ten,
-                  //           ),
-                  //           border: Border.all(
-                  //             width: Dimens.one,
-                  //             color: ColorsValue.appColor,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         controller.selectIndex = 5;
-                  //         controller.update();
-                  //       },
-                  //       child: Container(
-                  //         height: Dimens.fifty,
-                  //         width: Dimens.fifty,
-                  //         decoration: BoxDecoration(
-                  //           color: controller.selectIndex == 5
-                  //               ? ColorsValue.appColor
-                  //               : Colors.transparent,
-                  //           borderRadius: BorderRadius.circular(
-                  //             Dimens.ten,
-                  //           ),
-                  //           border: Border.all(
-                  //             width: Dimens.one,
-                  //             color: ColorsValue.appColor,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-                  // Dimens.boxHeight20,
-                  // Expanded(
-                  //   child: MasonryGridView.count(
-                  //     crossAxisCount: 2,
-                  //     itemCount: controller.strList.length,
-                  //     mainAxisSpacing: Dimens.fifteen,
-                  //     crossAxisSpacing: Dimens.fifteen,
-                  //     shrinkWrap: true,
-                  //     itemBuilder: (context, index) {
-                  //       return GestureDetector(
-                  //         child: Container(
-                  //           height: (index % 2) == 0
-                  //               ? Dimens.hundredFifty
-                  //               : Dimens.hundred,
-                  //           decoration: BoxDecoration(
-                  //             color: ColorsValue.appColor,
-                  //             borderRadius: BorderRadius.circular(Dimens.eight),
-                  //           ),
-                  //           child: Column(
-                  //             mainAxisAlignment: MainAxisAlignment.center,
-                  //             children: [
-                  //               Icon(
-                  //                 Icons.person,
-                  //                 color: ColorsValue.whiteColor,
-                  //               ),
-                  //               Dimens.boxHeight10,
-                  //               Text(
-                  //                 'Basic Tool',
-                  //                 style: Styles.whiteColorW70016,
-                  //               ),
-                  //             ],
-                  //           ),
-                  //         ),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );

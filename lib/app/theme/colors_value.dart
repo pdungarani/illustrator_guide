@@ -16,6 +16,7 @@ abstract class ColorsValue {
   static Color redColor = const Color(0xFFD80032);
   static Color txtBlackColor = const Color(0xFF1E293B);
   static Color lightYelloColor = const Color(0xFFFF9A00);
+  static Color black2E2B30 = const Color(0xFF2E2B30);
   static Color textField = const Color.fromARGB(255, 238, 238, 238);
   static Color blue94A3B8 = const Color.fromARGB(255, 170, 170, 170);
 }

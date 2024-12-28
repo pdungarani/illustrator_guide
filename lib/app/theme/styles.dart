@@ -13,6 +13,18 @@ abstract class Styles {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle txtBlackColorW70010 = GoogleFonts.montserrat(
+    color: ColorsValue.txtBlackColor,
+    fontSize: Dimens.ten,
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle txtBlackColorW70012 = GoogleFonts.montserrat(
+    color: ColorsValue.txtBlackColor,
+    fontSize: Dimens.twelve,
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle txtBlackColorW70030 = GoogleFonts.montserrat(
     color: ColorsValue.txtBlackColor,
     fontSize: Dimens.thirty,
@@ -29,6 +41,12 @@ abstract class Styles {
     color: ColorsValue.appColor,
     fontSize: Dimens.fourteen,
     fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle black2E2B30W60016 = GoogleFonts.montserrat(
+    color: ColorsValue.appColor,
+    fontSize: Dimens.sixteen,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle appColorW70016 = GoogleFonts.montserrat(
@@ -89,6 +107,12 @@ abstract class Styles {
     color: ColorsValue.whiteColor,
     fontSize: Dimens.sixteen,
     fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle whiteColorW60016 = GoogleFonts.montserrat(
+    color: ColorsValue.whiteColor,
+    fontSize: Dimens.sixteen,
+    fontWeight: FontWeight.w600,
   );
 
   /// Dialog Text

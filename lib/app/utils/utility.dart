@@ -25,6 +25,8 @@ import 'package:url_launcher/url_launcher.dart';
 abstract class Utility {
   static Directory path = Directory('storage/emulated/0/Fanzly');
 
+  static int selectedDrawerIndex = 0;
+
   /// common header for All api
   static Map<String, String> commonHeader({
     Map<String, String>? otherHeader,

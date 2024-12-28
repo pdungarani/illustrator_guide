@@ -13,5 +13,32 @@ abstract class AssetConstants {
   static const String ic_pass_show = "assets/svg/ic_pass_show.svg";
   static const String ic_pass_hide = "assets/svg/ic_pass_hide.svg";
   static const String ic_move_tool = "assets/svg/ic_movetool.svg";
+  static const String direct_selection_tool =
+      "assets/svg/direct_selection_tool.svg";
+  static const String ic_align = "assets/svg/ic_align.svg";
+  static const String ic_cliping_mask = "assets/svg/ic_cliping_mask.svg";
+  static const String join_tool = "assets/svg/join_tool.svg";
+  static const String move_tool = "assets/svg/move_tool.svg";
+  static const String pathfinder = "assets/svg/pathfinder.svg";
+  static const String pen_tool = "assets/svg/pen_tool.svg";
+  static const String shape_builder_tool = "assets/svg/shape_builder_tool.svg";
+  static const String type_tool = "assets/svg/type_tool.svg";
+  static const String headerIcon = "assets/svg/headerIcon.svg";
+  static const String banner_align_tool = "assets/banner/banner_align_tool.jpg";
+  static const String banner_clipping_mask =
+      "assets/banner/banner_clipping_mask.jpg";
+  static const String banner_join_tool = "assets/banner/banner_join_tool.jpg";
+  static const String banner_move_tool = "assets/banner/banner_move_tool.jpg";
+  static const String banner_pathfinder = "assets/banner/banner_pathfinder.jpg";
+  static const String banner_pen_tool = "assets/banner/banner_pen_tool.jpg";
+  static const String banner_selection_tool =
+      "assets/banner/banner_selection_tool.jpg";
+  static const String banner_shape_builder_tool =
+      "assets/banner/banner_shape_builder_tool.jpg";
+  static const String banner_type_tool = "assets/banner/banner_type_tool.jpg";
+  static const String avatar = "assets/image/avatar.png";
+  static const String ic_logout = "assets/svg/ic_logout.svg";
+  static const String ic_language = "assets/svg/ic_language.svg";
+  static const String ic_home = "assets/svg/ic_home.svg";
   static const String ssss = "";
 }
