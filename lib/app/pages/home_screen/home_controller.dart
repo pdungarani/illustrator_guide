@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:illustrator_guide/app/app.dart';
@@ -7,6 +8,8 @@ class HomeController extends GetxController {
   HomeController(this.homePresenter);
 
   HomePresenter homePresenter;
+
+  var db = FirebaseFirestore.instance;
 
   @override
   onInit() {
@@ -74,12 +77,25 @@ class HomeController extends GetxController {
   List<String> testList = ["fds", "Fsdf", "Fsdf"];
   int selectPage = 0;
 
+  void getFirestoreData() {
+    final docRef = db.collection("Basic Tool List").doc("Tool List");
+    docRef.get().then(
+      (DocumentSnapshot doc) {
+        print(doc);
+      },
+      onError: (e) => print(
+        "Error getting document: $e",
+      ),
+    );
+  }
+
   Widget commonBasicTool() {
     return Padding(
       padding: Dimens.edgeInsetsTop20,
       child: GridView.builder(
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+        ),
         itemBuilder: (context, index) => Padding(
           padding: Dimens.edgeInsetsLeft10.copyWith(bottom: 10),
           child: Container(

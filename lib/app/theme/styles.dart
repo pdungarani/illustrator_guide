@@ -49,6 +49,12 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle txtBlackColorW80016 = GoogleFonts.montserrat(
+    color: ColorsValue.txtBlackColor,
+    fontSize: Dimens.sixteen,
+    fontWeight: FontWeight.w800,
+  );
+
   static TextStyle txtBlackColorW60014 = GoogleFonts.montserrat(
     color: ColorsValue.txtBlackColor,
     fontSize: Dimens.fourteen,

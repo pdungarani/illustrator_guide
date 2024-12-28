@@ -11,7 +11,7 @@ import 'package:illustrator_guide/domain/domain.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  Firebase.initializeApp();
   await initServices();
   runApp(const MyApp());
 }

@@ -8,6 +8,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
+      initState: (state) {
+        var controller = Get.find<HomeController>();
+        controller.getFirestoreData();
+      },
       builder: (controller) {
         return DefaultTabController(
           length: 2,
@@ -26,7 +30,10 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("Explore More Tool"),
+                  Text(
+                    "Explore More Tool",
+                    style: Styles.txtBlackColorW80016,
+                  ),
                   Dimens.boxHeight10,
                   SizedBox(
                     height: Dimens.hundredEighty,
@@ -67,6 +74,7 @@ class HomeScreen extends StatelessWidget {
                     overlayColor:
                         WidgetStatePropertyAll(ColorsValue.whiteColor),
                     indicatorSize: TabBarIndicatorSize.tab,
+                    labelStyle: Styles.txtBlackColorW80016,
                     indicator: UnderlineTabIndicator(
                         borderSide: BorderSide(
                           width: 4,
