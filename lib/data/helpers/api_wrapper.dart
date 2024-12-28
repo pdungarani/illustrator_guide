@@ -11,7 +11,6 @@ import 'package:illustrator_guide/data/data.dart';
 import 'package:illustrator_guide/device/device.dart';
 import 'package:illustrator_guide/domain/domain.dart';
 
-import '../../domain/models/response_model.dart';
 
 /// API WRAPPER to call all the APIs and handle the error status codes
 class ApiWrapper {

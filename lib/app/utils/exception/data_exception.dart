@@ -10,5 +10,5 @@ class DataException implements Exception {
   String message;
 
   @override
-  String toString() => '$message';
+  String toString() => message;
 }

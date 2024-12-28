@@ -3,4 +3,6 @@
 /// task or a set of task
 ///
 /// Will be ignored for test since all are static values and would not change.
+library;
+
 export 'common_service.dart';

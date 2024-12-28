@@ -9,7 +9,7 @@ ThemeData themeData(BuildContext context) => ThemeData(
       ),
       shadowColor: const Color(0xFFDDE3FD),
       checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStateProperty.all<Color>(const Color(0xFFEA6F00)),
+        fillColor: WidgetStateProperty.all<Color>(const Color(0xFFEA6F00)),
         side: BorderSide.none,
       ),
       appBarTheme: const AppBarTheme(

@@ -7,8 +7,8 @@ import 'package:illustrator_guide/domain/domain.dart';
 /// Text widget, that turns URLs, email and phone numbers into clickable inline links in text for flutter
 ///
 class LinkyfyText extends StatefulWidget {
-  LinkyfyText({
-    Key? key,
+  const LinkyfyText({
+    super.key,
     @required this.text,
     @required this.textStyle,
     @required this.linkStyle,
@@ -16,7 +16,7 @@ class LinkyfyText extends StatefulWidget {
     this.onEmailTap,
     this.onPhoneTap,
     this.maxLines,
-  }) : super(key: key);
+  });
 
   final String? text;
   final int? maxLines;

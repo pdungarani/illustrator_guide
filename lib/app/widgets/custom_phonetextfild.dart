@@ -6,7 +6,7 @@ import '../app.dart';
 // ignore: must_be_immutable
 class CustomInternationalPhoneFild extends StatefulWidget {
   CustomInternationalPhoneFild(
-      {Key? key,
+      {super.key,
       required this.text,
       this.validation,
       required this.hintText,
@@ -17,8 +17,7 @@ class CustomInternationalPhoneFild extends StatefulWidget {
       this.textEditingController,
       this.radius = 5,
       this.hintStyle,
-      this.fillColor})
-      : super(key: key);
+      this.fillColor});
   final String text;
   final String hintText;
   final String? Function(String?)? validation;
