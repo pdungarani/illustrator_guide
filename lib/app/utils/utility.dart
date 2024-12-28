@@ -775,7 +775,7 @@ abstract class Utility {
         ? "Today ${timeFormat.format(dateTime)}"
         : formatter.format(dateTime) == formatter.format(dtYesterday)
             ? "Yesterday ${timeFormat.format(dateTime)}"
-            : "${formatterDateTime.format(dateTime)}";
+            : formatterDateTime.format(dateTime);
   }
 
   static bool timeToNext(sendTime) {
@@ -793,8 +793,8 @@ abstract class Utility {
     );
 
     bool within10Minutes =
-        currentTime.isAfter(targetTime.subtract(Duration(minutes: 10))) &&
-            currentTime.isBefore(targetTime.add(Duration(minutes: 10)));
+        currentTime.isAfter(targetTime.subtract(const Duration(minutes: 10))) &&
+            currentTime.isBefore(targetTime.add(const Duration(minutes: 10)));
 
     // Display the result
     print(within10Minutes);
@@ -914,8 +914,8 @@ abstract class Utility {
 
   /// Camera Permission Chan
   static Future<bool> cameraPermissionCheack(BuildContext context) async {
-    final status;
-    var permanentlyDenied;
+    final bool status;
+    bool permanentlyDenied;
     status = await Permission.camera.request().isDenied;
     permanentlyDenied = await Permission.camera.request().isPermanentlyDenied;
     if (status || permanentlyDenied) {
@@ -960,8 +960,8 @@ abstract class Utility {
 
   /// Audio Permission
   static Future<bool> audioPermissionCheack(BuildContext context) async {
-    final status;
-    var permanentlyDenied;
+    final bool status;
+    bool permanentlyDenied;
     if (Platform.isAndroid) {
       DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
@@ -1021,8 +1021,8 @@ abstract class Utility {
 
   /// Microphone Permission
   static Future<bool> microphonePermissionCheack(BuildContext context) async {
-    final status;
-    var permanentlyDenied;
+    final bool status;
+    bool permanentlyDenied;
     status = await Permission.microphone.request().isDenied;
     permanentlyDenied =
         await Permission.microphone.request().isPermanentlyDenied;
@@ -1070,8 +1070,8 @@ abstract class Utility {
   /// FilePicker Permission
   static Future<bool> filePickPermissionCheack() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    final status;
-    var permanentlyDenied;
+    final bool status;
+    bool permanentlyDenied;
     if (Platform.isIOS) {
       status = await Permission.storage.request().isDenied;
       permanentlyDenied =

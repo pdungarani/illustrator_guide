@@ -3,5 +3,7 @@
 /// and other device related work.
 ///
 /// Will be ignored for test since all are static values and would not change.
+library;
+
 export 'device_constants.dart';
 export 'repositories/device_repositories.dart';

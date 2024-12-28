@@ -3,6 +3,8 @@
 /// layer to the data and device layer.
 ///
 /// Will be ignored for test since all are static values and would not change.
+library;
+
 export 'domain_repository.dart';
 export 'local_storage_keys.dart';
 export 'repository.dart';
