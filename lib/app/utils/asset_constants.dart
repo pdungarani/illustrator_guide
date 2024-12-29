@@ -40,5 +40,7 @@ abstract class AssetConstants {
   static const String ic_logout = "assets/svg/ic_logout.svg";
   static const String ic_language = "assets/svg/ic_language.svg";
   static const String ic_home = "assets/svg/ic_home.svg";
+  static const String check = "assets/svg/check.svg";
+  static const String uncheck = "assets/svg/uncheck.svg";
   static const String ssss = "";
 }

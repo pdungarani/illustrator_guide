@@ -6,6 +6,7 @@ abstract class Routes {
   static const registerScreen = _Paths.registerScreen;
   static const homeScreen = _Paths.homeScreen;
   static const toolDetailsScreen = _Paths.toolDetailsScreen;
+  static const languageScreen = _Paths.languageScreen;
 }
 
 abstract class _Paths {
@@ -14,4 +15,5 @@ abstract class _Paths {
   static const registerScreen = '/registerScreen';
   static const homeScreen = '/homeScreen';
   static const toolDetailsScreen = '/toolDetailsScreen';
+  static const languageScreen = '/languageScreen';
 }

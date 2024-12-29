@@ -1,3 +1,5 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flag/flag_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:illustrator_guide/app/app.dart';
@@ -13,19 +15,21 @@ class HomeController extends GetxController {
   late YoutubePlayerController youtubePlayerController;
   int selectPage = 0;
 
+  String? language;
+
   @override
   onInit() {
     super.onInit();
-    youtubePlayerController = YoutubePlayerController(
-      params: const YoutubePlayerParams(
-        showControls: true,
-        mute: false,
-        loop: false,
-        showVideoAnnotations: false,
-        showFullscreenButton: true,
-      ),
-    );
+    language = Get.find<Repository>().getStringValue(LocalKeys.language);
   }
+
+  List<BasicToolsModel> basicTfdoolDetilsList = [
+    BasicToolsModel(
+      icon: AssetConstants.banner_align_tool,
+      name: 'shape_builder_tool'.tr,
+      widget: "",
+    ),
+  ];
 
   List<String> bannerList = [
     AssetConstants.banner_align_tool,
@@ -76,23 +80,22 @@ class HomeController extends GetxController {
       name: 'move_tool'.tr,
       steps: [
         Steps(
-          step: 'align_step1'.tr,
+          step: 'move_step1'.tr,
         ),
         Steps(
-          step: 'align_step2'.tr,
+          step: 'move_step2'.tr,
         ),
         Steps(
-          step: 'align_step3'.tr,
+          step: 'move_step3'.tr,
         )
       ],
       toolsQuestion: [
         ToolsQuestion(
-          question: 'align_que1'.tr,
-          answer: 'align_ans1'.tr,
+          question: 'move_que1'.tr,
+          answer: 'move_ans1'.tr,
         ),
         ToolsQuestion(
-          question: 'align_que2'.tr,
-          answer: 'align_ans2'.tr,
+          question: 'move_que2'.tr,
         ),
       ],
       video: 'FkYfwtIPMPo',
@@ -102,23 +105,28 @@ class HomeController extends GetxController {
       name: 'selection_tool'.tr,
       steps: [
         Steps(
-          step: 'align_step1'.tr,
+          step: 'selection_step1'.tr,
         ),
         Steps(
-          step: 'align_step2'.tr,
+          step: 'selection_step2'.tr,
         ),
         Steps(
-          step: 'align_step3'.tr,
+          step: 'selection_step3'.tr,
+        ),
+        Steps(
+          step: 'selection_step4'.tr,
+        ),
+        Steps(
+          step: 'selection_step5'.tr,
         )
       ],
       toolsQuestion: [
         ToolsQuestion(
-          question: 'align_que1'.tr,
-          answer: 'align_ans1'.tr,
+          question: 'selection_que1'.tr,
+          answer: 'selection_ans1'.tr,
         ),
         ToolsQuestion(
-          question: 'align_que2'.tr,
-          answer: 'align_ans2'.tr,
+          question: 'selection_que2'.tr,
         ),
       ],
       video: 'somEUTMlhKI',
@@ -128,23 +136,28 @@ class HomeController extends GetxController {
       name: 'pen_tool'.tr,
       steps: [
         Steps(
-          step: 'align_step1'.tr,
+          step: 'pen_step1'.tr,
         ),
         Steps(
-          step: 'align_step2'.tr,
+          step: 'pen_step2'.tr,
         ),
         Steps(
-          step: 'align_step3'.tr,
-        )
+          step: 'pen_step3'.tr,
+        ),
+        Steps(
+          step: 'pen_step4'.tr,
+        ),
+        Steps(
+          step: 'pen_step5'.tr,
+        ),
       ],
       toolsQuestion: [
         ToolsQuestion(
-          question: 'align_que1'.tr,
-          answer: 'align_ans1'.tr,
+          question: 'pen_que1'.tr,
+          answer: 'pen_ans1'.tr,
         ),
         ToolsQuestion(
-          question: 'align_que2'.tr,
-          answer: 'align_ans2'.tr,
+          question: 'pen_que2'.tr,
         ),
       ],
       video: '6YNce6GSjC4',
@@ -154,23 +167,25 @@ class HomeController extends GetxController {
       name: 'join_tool'.tr,
       steps: [
         Steps(
-          step: 'align_step1'.tr,
+          step: 'join_step1'.tr,
         ),
         Steps(
-          step: 'align_step2'.tr,
+          step: 'join_step2'.tr,
         ),
         Steps(
-          step: 'align_step3'.tr,
+          step: 'join_step3'.tr,
+        ),
+        Steps(
+          step: 'join_step4'.tr,
         )
       ],
       toolsQuestion: [
         ToolsQuestion(
-          question: 'align_que1'.tr,
-          answer: 'align_ans1'.tr,
+          question: 'join_que1'.tr,
+          answer: 'join_ans1'.tr,
         ),
         ToolsQuestion(
-          question: 'align_que2'.tr,
-          answer: 'align_ans2'.tr,
+          question: 'join_que2'.tr,
         ),
       ],
       video: '_t-bDpf9tRw',
@@ -206,23 +221,34 @@ class HomeController extends GetxController {
       name: 'pathfinder'.tr,
       steps: [
         Steps(
-          step: 'align_step1'.tr,
+          step: 'pathfinder_step1'.tr,
         ),
         Steps(
-          step: 'align_step2'.tr,
+          step: 'pathfinder_step2'.tr,
         ),
         Steps(
-          step: 'align_step3'.tr,
-        )
+          step: 'pathfinder_step3'.tr,
+        ),
+        Steps(
+          step: 'pathfinder_step4'.tr,
+        ),
+        Steps(
+          step: 'pathfinder_step5'.tr,
+        ),
+        Steps(
+          step: 'pathfinder_step6'.tr,
+        ),
+        Steps(
+          step: 'pathfinder_step7'.tr,
+        ),
       ],
       toolsQuestion: [
         ToolsQuestion(
-          question: 'align_que1'.tr,
-          answer: 'align_ans1'.tr,
+          question: 'pathfinder_que1'.tr,
+          answer: 'pathfinder_ans1'.tr,
         ),
         ToolsQuestion(
-          question: 'align_que2'.tr,
-          answer: 'align_ans2'.tr,
+          question: 'pathfinder_que2'.tr,
         ),
       ],
       video: 'vqliIC8eID4',
@@ -232,23 +258,28 @@ class HomeController extends GetxController {
       name: 'type_tool'.tr,
       steps: [
         Steps(
-          step: 'align_step1'.tr,
+          step: 'type_step1'.tr,
         ),
         Steps(
-          step: 'align_step2'.tr,
+          step: 'type_step2'.tr,
         ),
         Steps(
-          step: 'align_step3'.tr,
-        )
+          step: 'type_step3'.tr,
+        ),
+        Steps(
+          step: 'type_step4'.tr,
+        ),
+        Steps(
+          step: 'type_step5'.tr,
+        ),
       ],
       toolsQuestion: [
         ToolsQuestion(
-          question: 'align_que1'.tr,
-          answer: 'align_ans1'.tr,
+          question: 'type_que1'.tr,
+          answer: 'type_ans1'.tr,
         ),
         ToolsQuestion(
-          question: 'align_que2'.tr,
-          answer: 'align_ans2'.tr,
+          question: 'type_que2'.tr,
         ),
       ],
       video: 'aEtlyfpV_WM',
@@ -258,23 +289,25 @@ class HomeController extends GetxController {
       name: 'clipping_mask'.tr,
       steps: [
         Steps(
-          step: 'align_step1'.tr,
+          step: 'clipping_step1'.tr,
         ),
         Steps(
-          step: 'align_step2'.tr,
+          step: 'clipping_step2'.tr,
         ),
         Steps(
-          step: 'align_step3'.tr,
+          step: 'clipping_step3'.tr,
+        ),
+        Steps(
+          step: 'clipping_step4'.tr,
         )
       ],
       toolsQuestion: [
         ToolsQuestion(
-          question: 'align_que1'.tr,
-          answer: 'align_ans1'.tr,
+          question: 'clipping_que1'.tr,
+          answer: 'clipping_ans1'.tr,
         ),
         ToolsQuestion(
-          question: 'align_que2'.tr,
-          answer: 'align_ans2'.tr,
+          question: 'clipping_que2'.tr,
         ),
       ],
       video: 'AQ1WFyw1ve4',
@@ -284,23 +317,28 @@ class HomeController extends GetxController {
       name: 'shape_builder_tool'.tr,
       steps: [
         Steps(
-          step: 'align_step1'.tr,
+          step: 'shape_step1'.tr,
         ),
         Steps(
-          step: 'align_step2'.tr,
+          step: 'shape_step2'.tr,
         ),
         Steps(
-          step: 'align_step3'.tr,
-        )
+          step: 'shape_step3'.tr,
+        ),
+        Steps(
+          step: 'shape_step4'.tr,
+        ),
+        Steps(
+          step: 'shape_step5'.tr,
+        ),
       ],
       toolsQuestion: [
         ToolsQuestion(
-          question: 'align_que1'.tr,
-          answer: 'align_ans1'.tr,
+          question: 'shape_que1'.tr,
+          answer: 'shape_ans1'.tr,
         ),
         ToolsQuestion(
-          question: 'align_que2'.tr,
-          answer: 'align_ans2'.tr,
+          question: 'shape_que2'.tr,
         ),
       ],
       video: 'Jbq-iJFnK9g',
@@ -313,4 +351,60 @@ class HomeController extends GetxController {
   //////////////////////////////////////////////////// ToolDetailsScreen //////////////////////////////////////////////////
 
   BasicToolsModel? basicToolsModel = BasicToolsModel();
+
+  String status = 'Offline';
+
+  networkCheck() async {
+    var subscription = await (Connectivity().checkConnectivity());
+    {
+      if (subscription == ConnectivityResult.none) {
+        status = "Offline";
+      } else {
+        status = "Online";
+      }
+      update();
+    }
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////// LanguageScreen //////////////////////////////////////////////////
+
+  List<BasicToolsModel> languageList = [
+    BasicToolsModel(
+      name: 'India - Gujarati',
+      flagProperty: FlagsCode.IN,
+      widget: ('gu'),
+      Value: false,
+    ),
+    BasicToolsModel(
+      name: 'India - English',
+      flagProperty: FlagsCode.IN,
+      widget: ('en'),
+      Value: true,
+    ),
+    BasicToolsModel(
+      name: 'India - Hindi',
+      flagProperty: FlagsCode.IN,
+      widget: ('hi'),
+      Value: false,
+    ),
+    BasicToolsModel(
+      name: 'Germany - German',
+      flagProperty: FlagsCode.DE,
+      widget: ('ge'),
+      Value: false,
+    ),
+  ];
+
+  updateLanguage(Locale locale) {
+    Utility.selectedDrawerIndex = 0;
+    RouteManagement.goToHomeScreen();
+    Get.updateLocale(locale);
+  }
+
+  Future<void> setUpdatelanguage(value) async {
+    Get.find<Repository>().saveValue(LocalKeys.language, value);
+  }
 }

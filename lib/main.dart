@@ -68,11 +68,11 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       designSize: const Size(375, 745),
       builder: (_, child) => GetMaterialApp(
-        locale: const Locale('en'),
         debugShowCheckedModeBanner: false,
         title: StringConstants.appName,
         theme: themeData(context),
         darkTheme: darkThemeData(context),
+        locale: getLanguage(),
         themeMode: ThemeMode.light,
         getPages: AppPages.pages,
         initialRoute: Routes.homeScreen,
@@ -81,5 +81,14 @@ class MyApp extends StatelessWidget {
         enableLog: true,
       ),
     );
+  }
+
+  Locale getLanguage() {
+    var language = Get.find<Repository>().getStringValue(LocalKeys.language);
+    if (language.isNotEmpty) {
+      return Locale(language);
+    } else {
+      return const Locale('en');
+    }
   }
 }

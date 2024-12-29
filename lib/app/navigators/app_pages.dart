@@ -43,5 +43,12 @@ class AppPages {
       binding: HomeBinding(),
       transition: Transition.fadeIn,
     ),
+    GetPage<LanguageScreen>(
+      name: _Paths.languageScreen,
+      transitionDuration: transitionDuration,
+      page: LanguageScreen.new,
+      binding: HomeBinding(),
+      transition: Transition.fadeIn,
+    ),
   ];
 }

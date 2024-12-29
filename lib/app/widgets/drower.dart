@@ -24,10 +24,10 @@ class _AppDrowerState extends State<AppDrower> {
         name: "language".tr,
         icon: AssetConstants.ic_language,
       ),
-      ModelDrower(
-        name: "logout".tr,
-        icon: AssetConstants.ic_logout,
-      ),
+      // ModelDrower(
+      //   name: "logout".tr,
+      //   icon: AssetConstants.ic_logout,
+      // ),
     ];
     super.initState();
   }
@@ -99,8 +99,15 @@ class _AppDrowerState extends State<AppDrower> {
                           Utility.selectedDrawerIndex = index;
                           Get.back();
                         });
-                        if (drowerList[index].onTap != null) {
-                          drowerList[index].onTap!();
+                        switch (index) {
+                          case 0:
+                            RouteManagement.goToHomeScreen();
+                            break;
+                          case 1:
+                            RouteManagement.goToLanguageScreen();
+                            break;
+                          default:
+                            RouteManagement.goToHomeScreen();
                         }
                       },
                       child: Container(

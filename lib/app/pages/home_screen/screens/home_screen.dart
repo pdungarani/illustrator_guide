@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
               image: AssetConstants.headerIcon,
               width: Dimens.thirty,
               height: Dimens.thirty,
-              title: "Home",
+              title: "home".tr,
               txtStyle: Styles.whiteColorW70020,
             ),
           ),

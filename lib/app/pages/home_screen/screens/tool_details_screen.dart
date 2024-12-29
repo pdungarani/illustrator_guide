@@ -13,8 +13,18 @@ class ToolDetailsScreen extends StatelessWidget {
         var controller = Get.find<HomeController>();
         controller.basicToolsModel = null;
         controller.basicToolsModel = Get.arguments;
-        controller.youtubePlayerController
-            .cueVideoById(videoId: controller.basicToolsModel?.video ?? "");
+        controller.youtubePlayerController = YoutubePlayerController(
+          params: const YoutubePlayerParams(
+            showControls: true,
+            mute: false,
+            loop: false,
+            showVideoAnnotations: false,
+            showFullscreenButton: true,
+          ),
+        );
+        controller.youtubePlayerController.cueVideoById(
+          videoId: controller.basicToolsModel?.video ?? "",
+        );
       },
       builder: (controller) {
         return Scaffold(
@@ -23,6 +33,7 @@ class ToolDetailsScreen extends StatelessWidget {
             preferredSize: Size(double.maxFinite, Dimens.sixty),
             child: ScreenHeader(
               onTap: () {
+            
                 Get.back();
               },
               isVisible: true,
@@ -38,15 +49,17 @@ class ToolDetailsScreen extends StatelessWidget {
               padding: Dimens.edgeInsets20,
               child: Column(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(
-                      Dimens.ten,
+                  if (controller.basicToolsModel?.video != null) ...[
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                        Dimens.ten,
+                      ),
+                      child: YoutubePlayer(
+                        controller: controller.youtubePlayerController,
+                        backgroundColor: Colors.transparent,
+                      ),
                     ),
-                    child: YoutubePlayer(
-                      controller: controller.youtubePlayerController,
-                      backgroundColor: Colors.transparent,
-                    ),
-                  ),
+                  ],
                   Dimens.boxHeight10,
                   ListView.builder(
                     shrinkWrap: true,
@@ -59,16 +72,19 @@ class ToolDetailsScreen extends StatelessWidget {
                       return Padding(
                         padding: Dimens.edgeInsetsTopt10,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              itemQue?.question ?? "",
+                              itemQue?.question?.trim() ?? "",
                               style: Styles.txtBlackColorW70020,
                             ),
-                            Dimens.boxHeight15,
-                            Text(
-                              itemQue?.answer ?? "",
-                              style: Styles.txtBlackColorW40014,
-                            ),
+                            if (itemQue?.answer?.isNotEmpty ?? false) ...[
+                              Dimens.boxHeight15,
+                              Text(
+                                itemQue?.answer ?? "",
+                                style: Styles.txtBlackColorW40014,
+                              ),
+                            ],
                           ],
                         ),
                       );

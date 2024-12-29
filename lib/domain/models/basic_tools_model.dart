@@ -1,3 +1,4 @@
+import 'package:flag/flag_enum.dart';
 import 'package:flutter/cupertino.dart';
 
 class BasicToolsModel {
@@ -7,6 +8,7 @@ class BasicToolsModel {
   String? video;
   String? image;
   String? widget;
+  FlagsCode? flagProperty;
   Locale? locale;
   bool? Value;
   List<Steps>? steps;
@@ -21,6 +23,7 @@ class BasicToolsModel {
     this.video,
     this.image,
     this.widget,
+    this.flagProperty,
     this.locale,
     this.Value,
     this.steps,
@@ -36,6 +39,7 @@ class BasicToolsModel {
     shortcut = json['shortcut'];
     image = json['image'];
     widget = json['widget'];
+    flagProperty = json['flagProperty'];
     Value = json['Value'];
     if (json['Steps'] != null) {
       steps = <Steps>[];
@@ -59,6 +63,7 @@ class BasicToolsModel {
     data['shortcut'] = this.shortcut;
     data['image'] = this.image;
     data['widget'] = this.widget;
+    data['flagProperty'] = this.flagProperty;
     data['Value'] = this.Value;
     if (this.steps != null) {
       data['Steps'] = this.steps!.map((v) => v.toJson()).toList();
