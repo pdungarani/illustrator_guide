@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flag/flag_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,11 +23,14 @@ class HomeController extends GetxController {
   final CarouselSliderController carouselSliderController =
       CarouselSliderController();
 
+  FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
+
   @override
   onInit() {
     super.onInit();
     networkCheck();
     language = Get.find<Repository>().getStringValue(LocalKeys.language);
+    FirebaseAnalytics.instance.logScreenView(screenName: "HomeScreen");
   }
 
   List<BasicToolsModel> basicTfdoolDetilsList = [

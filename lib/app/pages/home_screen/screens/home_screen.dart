@@ -122,6 +122,22 @@ class HomeScreen extends StatelessWidget {
                     ),
                     itemBuilder: (context, index) => GestureDetector(
                       onTap: () {
+                        controller.firebaseAnalytics.logEvent(
+                          name: 'home_screen',
+                          parameters: {
+                            'page_name':
+                                controller.basicToolDetilsList[index].name ??
+                                    "",
+                          },
+                        ).then(
+                          (value) {
+                            print("Event Fire Successfully===>");
+                          },
+                        ).onError(
+                          (error, stackTrace) {
+                            print("Error===>${error.toString()}");
+                          },
+                        );
                         RouteManagement.goToolDetailsScreen(
                             controller.basicToolDetilsList[index]);
                       },
