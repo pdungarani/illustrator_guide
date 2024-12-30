@@ -24,10 +24,10 @@ class _AppDrowerState extends State<AppDrower> {
         name: "language".tr,
         icon: AssetConstants.ic_language,
       ),
-      // ModelDrower(
-      //   name: "logout".tr,
-      //   icon: AssetConstants.ic_logout,
-      // ),
+      ModelDrower(
+        name: "policy".tr,
+        icon: AssetConstants.policy,
+      ),
     ];
     super.initState();
   }
@@ -106,6 +106,11 @@ class _AppDrowerState extends State<AppDrower> {
                           case 1:
                             RouteManagement.goToLanguageScreen();
                             break;
+                          case 2:
+                            Utility.selectedDrawerIndex = 0;
+                            Utility.launchLinkURL(
+                                "https://sparkflows854.blogspot.com/2024/12/illustrator-guide.html");
+                            break;
                           default:
                             RouteManagement.goToHomeScreen();
                         }
@@ -155,14 +160,13 @@ class _AppDrowerState extends State<AppDrower> {
                                 ),
                                 Dimens.boxWidth10,
                                 SizedBox(
-                                    width: Dimens.hundredNinty - Dimens.eighty,
-                                    child: Text(
-                                      drowerList[index].name ?? "",
-                                      style:
-                                          Utility.selectedDrawerIndex == index
-                                              ? Styles.whiteColorW60016
-                                              : Styles.black2E2B30W60016,
-                                    ))
+                                  child: Text(
+                                    drowerList[index].name ?? "",
+                                    style: Utility.selectedDrawerIndex == index
+                                        ? Styles.whiteColorW60016
+                                        : Styles.black2E2B30W60016,
+                                  ),
+                                ),
                               ],
                             )
                           ],

@@ -11,6 +11,7 @@ class ToolDetailsScreen extends StatelessWidget {
     return GetBuilder<HomeController>(
       initState: (state) {
         var controller = Get.find<HomeController>();
+        controller.networkCheck();
         controller.basicToolsModel = null;
         controller.basicToolsModel = Get.arguments;
         controller.youtubePlayerController = YoutubePlayerController(
@@ -33,7 +34,6 @@ class ToolDetailsScreen extends StatelessWidget {
             preferredSize: Size(double.maxFinite, Dimens.sixty),
             child: ScreenHeader(
               onTap: () {
-            
                 Get.back();
               },
               isVisible: true,
@@ -50,15 +50,41 @@ class ToolDetailsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   if (controller.basicToolsModel?.video != null) ...[
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(
-                        Dimens.ten,
-                      ),
-                      child: YoutubePlayer(
-                        controller: controller.youtubePlayerController,
-                        backgroundColor: Colors.transparent,
-                      ),
-                    ),
+                    controller.status == "Online"
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                              Dimens.ten,
+                            ),
+                            child: YoutubePlayer(
+                              controller: controller.youtubePlayerController,
+                              backgroundColor: Colors.transparent,
+                            ),
+                          )
+                        : Container(
+                            alignment: Alignment.center,
+                            width: double.maxFinite,
+                            height: Dimens.hundredFifty,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(
+                                Dimens.fifteen,
+                              ),
+                              color: ColorsValue.appColor,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'No Internet Connection found.',
+                                  style: Styles.whiteColorW60016,
+                                ),
+                                Text(
+                                  'Check your connection or try again.',
+                                  style: Styles.whiteColorW60016,
+                                ),
+                              ],
+                            ),
+                          ),
                   ],
                   Dimens.boxHeight10,
                   ListView.builder(

@@ -165,6 +165,10 @@ class TranslationsFile extends Translations {
               "Type on a Path: For text that follows a path, select the Type on a Path Tool and click on the path where you want the text to begin.",
           "type_step5":
               "Format Text: Use the Character and Paragraph panels to adjust font, size, spacing, and alignment as needed.",
+          'policy': 'Privacy Policy',
+          'no_internet': 'No Internet Connection found.',
+          'check_internet': 'Check your connection or try again.',
+          '': '',
         },
         'gu': {
           "appName": "ઈલસ્ટ્રેટર માર્ગદર્શિકા",
@@ -322,8 +326,10 @@ class TranslationsFile extends Translations {
           "type_step4":
               "Path પર ટાઇપ કરો: જો તમે ઇચ્છો છો કે ટેક્સ્ટ પાથ પર જવું, તો Type on a Path Tool પસંદ કરો અને પાથ પર ક્લિક કરો જ્યાં તમે ટેક્સ્ટ શરૂ કરવા માંગતા હોવ.",
           "type_step5":
-              "ટેક્સ્ટને ફોર્મેટ કરો: Character અને Paragraph પેનલનો ઉપયોગ કરો જેથી જરૂરી મુજબ ફૉન્ટ, કદ, સ્પેસિંગ, અને અલાઇનમેન્ટને એડજસ્ટ કરી શકાય."
-       
+              "ટેક્સ્ટને ફોર્મેટ કરો: Character અને Paragraph પેનલનો ઉપયોગ કરો જેથી જરૂરી મુજબ ફૉન્ટ, કદ, સ્પેસિંગ, અને અલાઇનમેન્ટને એડજસ્ટ કરી શકાય.",
+          'policy': 'ગોપનીયતા નીતિ',
+          'no_internet': 'કોઈ ઈન્ટરનેટ કનેક્શન મળ્યું નથી.',
+          'check_internet': 'તમારું કનેક્શન તપાસો અથવા ફરી પ્રયાસ કરો.',
         },
         'hi': {
           "appName": "इलस्ट्रेटर गाइड",
@@ -479,7 +485,10 @@ class TranslationsFile extends Translations {
           "type_step4":
               "Path पर टाइप करें: यदि आप चाहते हैं कि टेक्स्ट किसी पथ के साथ चले, तो Type on a Path Tool का चयन करें और उस पथ पर क्लिक करें जहां आप टेक्स्ट शुरू करना चाहते हैं।",
           "type_step5":
-              "टेक्स्ट को स्वरूपित करें: Character और Paragraph पैनल का उपयोग करें ताकि आवश्यकतानुसार फ़ॉन्ट, आकार, रिक्ति, और संरेखण को समायोजित किया जा सके।"
+              "टेक्स्ट को स्वरूपित करें: Character और Paragraph पैनल का उपयोग करें ताकि आवश्यकतानुसार फ़ॉन्ट, आकार, रिक्ति, और संरेखण को समायोजित किया जा सके।",
+          'policy': 'गोपनीयता नीति',
+          'no_internet': 'कोई इंटरनेट कनेक्शन नहीं मिला.',
+          'check_internet': 'अपना कनेक्शन जाँचें या पुनः प्रयास करें।',
         },
         'ge': {
           "appName": "Illustrator Guide",
@@ -640,7 +649,11 @@ class TranslationsFile extends Translations {
           "type_step4":
               "Text auf einem Pfad erstellen: Für Text, der einem Pfad folgt, wählen Sie das Type on a Path Tool und klicken Sie auf den Pfad, an dem Sie den Text beginnen möchten.",
           "type_step5":
-              "Text formatieren: Verwenden Sie die Panels Character und Paragraph, um Schriftart, Größe, Abstand und Ausrichtung nach Bedarf anzupassen."
+              "Text formatieren: Verwenden Sie die Panels Character und Paragraph, um Schriftart, Größe, Abstand und Ausrichtung nach Bedarf anzupassen.",
+          'policy': 'Datenschutzrichtlinie',
+          'no_internet': 'Keine Internetverbindung gefunden.',
+          'check_internet':
+              'Überprüfen Sie Ihre Verbindung oder versuchen Sie es erneut.',
         },
       };
 }

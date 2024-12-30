@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
           key: controller.scaffoldKey,
           backgroundColor: ColorsValue.appBg,
-          drawer: AppDrower(),
+          drawer: const AppDrower(),
           appBar: PreferredSize(
             preferredSize: Size(double.maxFinite, Dimens.sixty),
             child: ScreenHeader(
@@ -41,15 +42,10 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: Dimens.twoHundred,
-                  child: PageView.builder(
-                    itemCount: controller.bannerList.length,
-                    onPageChanged: (value) {
-                      controller.selectPage = value;
-                      controller.update();
-                    },
-                    itemBuilder: (context, index) {
+                CarouselSlider(
+                  items: controller.bannerList.asMap().entries.map(
+                    (e) {
+                      var index = e.key;
                       return InkWell(
                         onTap: () {},
                         child: Container(
@@ -67,36 +63,53 @@ class HomeScreen extends StatelessWidget {
                               Dimens.twenty,
                             ),
                             child: Image.asset(
-                              controller.bannerList[index],
+                              e.value,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       );
                     },
+                  ).toList(),
+                  carouselController: controller.carouselSliderController,
+                  options: CarouselOptions(
+                    enlargeCenterPage: true,
+                    autoPlay: true,
+                    aspectRatio: 2.0,
+                    onPageChanged: (index, reason) {
+                      controller.current = index;
+                      controller.update();
+                    },
                   ),
                 ),
                 Dimens.boxHeight10,
-                Center(
-                  child: Wrap(
-                    children: controller.bannerList.asMap().entries.map((e) {
-                      return Padding(
-                        padding: Dimens.edgeInsetsLeft2,
-                        child: Container(
-                          width: Dimens.six,
-                          height: Dimens.six,
-                          decoration: BoxDecoration(
-                            color: controller.selectPage == e.key
-                                ? ColorsValue.appColor
-                                : ColorsValue.blue94A3B8,
-                            borderRadius: BorderRadius.circular(
-                              Dimens.hundred,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: controller.bannerList.asMap().entries.map(
+                    (entry) {
+                      return InkWell(
+                        onTap: () {
+                          controller.carouselSliderController
+                              .animateToPage(entry.key);
+                        },
+                        child: Padding(
+                          padding: Dimens.edgeInsetsLeft2,
+                          child: Container(
+                            width: Dimens.six,
+                            height: Dimens.six,
+                            decoration: BoxDecoration(
+                              color: controller.current == entry.key
+                                  ? ColorsValue.appColor
+                                  : ColorsValue.blue94A3B8,
+                              borderRadius: BorderRadius.circular(
+                                Dimens.hundred,
+                              ),
                             ),
                           ),
                         ),
                       );
-                    }).toList(),
-                  ),
+                    },
+                  ).toList(),
                 ),
                 Dimens.boxHeight30,
                 Expanded(
@@ -123,7 +136,7 @@ class HomeScreen extends StatelessWidget {
                             BoxShadow(
                               color: Colors.black12.withOpacity(0.3),
                               blurRadius: 5.0,
-                              offset: Offset(0.0, 3.0),
+                              offset: const Offset(0.0, 3.0),
                             ),
                           ],
                         ),
@@ -133,6 +146,8 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             SvgPicture.asset(
                               controller.basicToolDetilsList[index].icon ?? "",
+                              height: Dimens.thirty,
+                              width: Dimens.thirty,
                             ),
                             Dimens.boxHeight10,
                             Text(

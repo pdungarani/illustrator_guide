@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_controller.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flag/flag_enum.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +18,14 @@ class HomeController extends GetxController {
 
   String? language;
 
+  int current = 0;
+  final CarouselSliderController carouselSliderController =
+      CarouselSliderController();
+
   @override
   onInit() {
     super.onInit();
+    networkCheck();
     language = Get.find<Repository>().getStringValue(LocalKeys.language);
   }
 
@@ -357,7 +363,7 @@ class HomeController extends GetxController {
   networkCheck() async {
     var subscription = await (Connectivity().checkConnectivity());
     {
-      if (subscription == ConnectivityResult.none) {
+      if (subscription.contains(ConnectivityResult.none)) {
         status = "Offline";
       } else {
         status = "Online";
