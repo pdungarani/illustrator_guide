@@ -13,4 +13,5 @@ abstract class RouteManagement {
         Routes.toolDetailsScreen,
         arguments: basicToolsModel,
       );
+  static void goToSettingScreen() => Get.toNamed<void>(Routes.settingScreen);
 }

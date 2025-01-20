@@ -13,9 +13,21 @@ abstract class Styles {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle txtBlackColorW70024 = GoogleFonts.montserrat(
+    color: ColorsValue.txtBlackColor,
+    fontSize: Dimens.twentyFour,
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle txtBlackColorW70010 = GoogleFonts.montserrat(
     color: ColorsValue.txtBlackColor,
     fontSize: Dimens.ten,
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle txtBlackColorW70016 = GoogleFonts.montserrat(
+    color: ColorsValue.txtBlackColor,
+    fontSize: Dimens.sixteen,
     fontWeight: FontWeight.w700,
   );
 
@@ -55,9 +67,21 @@ abstract class Styles {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle appColorW70020 = GoogleFonts.montserrat(
+    color: ColorsValue.appGrayColor,
+    fontSize: Dimens.twenty,
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle txtBlackColorW40016 = GoogleFonts.montserrat(
     color: ColorsValue.txtBlackColor,
     fontSize: Dimens.sixteen,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle txtBlackColorW40012 = GoogleFonts.montserrat(
+    color: ColorsValue.txtBlackColor,
+    fontSize: Dimens.twelve,
     fontWeight: FontWeight.w400,
   );
 
@@ -109,9 +133,21 @@ abstract class Styles {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle whiteColorW70018 = GoogleFonts.montserrat(
+    color: ColorsValue.whiteColor,
+    fontSize: Dimens.eighteen,
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle whiteColorW60016 = GoogleFonts.montserrat(
     color: ColorsValue.whiteColor,
     fontSize: Dimens.sixteen,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle whiteColorW60014 = GoogleFonts.montserrat(
+    color: ColorsValue.whiteColor,
+    fontSize: Dimens.fourteen,
     fontWeight: FontWeight.w600,
   );
 

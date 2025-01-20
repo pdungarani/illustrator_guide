@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:illustrator_guide/app/pages/pages.dart';
+import 'package:illustrator_guide/app/pages/setting_screen/setting_page.dart';
 
 part 'app_routes.dart';
 
@@ -48,6 +49,13 @@ class AppPages {
       transitionDuration: transitionDuration,
       page: LanguageScreen.new,
       binding: HomeBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage<SettingScreen>(
+      name: _Paths.settingScreen,
+      transitionDuration: transitionDuration,
+      page: SettingScreen.new,
+      binding: SettingBinding(),
       transition: Transition.fadeIn,
     ),
   ];

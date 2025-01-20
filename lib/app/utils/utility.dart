@@ -4,7 +4,6 @@ import 'dart:io' show Directory, File, FileMode, Platform;
 import 'dart:math';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:dio/dio.dart' as dio;
 import 'package:email_validator/email_validator.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,11 +12,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:illustrator_guide/app/app.dart';
+import 'package:illustrator_guide/domain/domain.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
-import 'package:illustrator_guide/app/app.dart';
-import 'package:illustrator_guide/domain/domain.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -1272,6 +1271,20 @@ abstract class Utility {
       return false;
     } else {
       return true;
+    }
+  }
+
+  static String getGreetingMessage() {
+    final hour = DateTime.now().hour;
+
+    if (hour >= 5 && hour < 12) {
+      return "Good Morning!";
+    } else if (hour >= 12 && hour < 17) {
+      return "Good Afternoon!";
+    } else if (hour >= 17 && hour < 21) {
+      return "Good Evening!";
+    } else {
+      return "Good Night!";
     }
   }
 
