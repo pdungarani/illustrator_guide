@@ -54,9 +54,12 @@ class ToolDetailsScreen extends StatelessWidget {
                   children: [
                     Image.asset(controller.basicToolsModel?.bannerImage ?? ''),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20, top: 50),
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        top: 20,
+                      ),
                       child: CircleAvatar(
-                        backgroundColor: ColorsValue.black2E2B30,
+                        backgroundColor: ColorsValue.appColor,
                         child: IconButton(
                           icon: const Icon(
                             Icons.arrow_back,

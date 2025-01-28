@@ -310,6 +310,8 @@ abstract class Dimens {
 
   static EdgeInsets edgeInsetsRight10 = EdgeInsets.only(right: ten);
 
+  static EdgeInsets edgeInsetsTop10 = EdgeInsets.only(top: ten);
+
   static EdgeInsets edgeInsets25_14 = EdgeInsets.symmetric(
     horizontal: Dimens.twentyFive,
     vertical: Dimens.fourteen,

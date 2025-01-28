@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:illustrator_guide/app/pages/home_screen/screens/full_video_screen.dart';
 import 'package:illustrator_guide/app/pages/pages.dart';
 import 'package:illustrator_guide/app/pages/setting_screen/setting_page.dart';
-import 'package:illustrator_guide/app/pages/shortcuts_screen/shortcuts_page.dart';
+import 'package:illustrator_guide/app/pages/shortcuts_screen/shortcuts_pages.dart';
 
 part 'app_routes.dart';
 
@@ -71,7 +71,7 @@ class AppPages {
       name: _Paths.shortcutsScreen,
       transitionDuration: transitionDuration,
       page: ShortcutsScreen.new,
-      binding: ShortcutsBinding(),
+      binding: ShortcutsBindings(),
       transition: Transition.fadeIn,
     ),
   ];

@@ -55,6 +55,12 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle appColorW60014 = GoogleFonts.roboto(
+    color: ColorsValue.appColor,
+    fontSize: Dimens.fourteen,
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle black2E2B30W60016 = GoogleFonts.roboto(
     color: ColorsValue.appColor,
     fontSize: Dimens.sixteen,
@@ -109,6 +115,12 @@ abstract class Styles {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle txtBlackColorW80012 = GoogleFonts.roboto(
+    color: ColorsValue.txtBlackColor,
+    fontSize: Dimens.twelve,
+    fontWeight: FontWeight.w800,
+  );
+
   static TextStyle txtBlackColorW40014 = GoogleFonts.roboto(
     color: ColorsValue.txtBlackColor,
     fontSize: Dimens.fourteen,
@@ -133,6 +145,24 @@ abstract class Styles {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle black2E2B3070020 = GoogleFonts.roboto(
+    color: ColorsValue.black2E2B30,
+    fontSize: Dimens.twenty,
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle black2E2B3060014 = GoogleFonts.roboto(
+    color: ColorsValue.black2E2B30,
+    fontSize: Dimens.fourteen,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle black2E2B3080012 = GoogleFonts.roboto(
+    color: ColorsValue.black2E2B30,
+    fontSize: Dimens.twelve,
+    fontWeight: FontWeight.w800,
+  );
+
   static TextStyle whiteColorW70016 = GoogleFonts.roboto(
     color: ColorsValue.whiteColor,
     fontSize: Dimens.sixteen,
@@ -153,6 +183,12 @@ abstract class Styles {
 
   static TextStyle whiteColorW60014 = GoogleFonts.roboto(
     color: ColorsValue.whiteColor,
+    fontSize: Dimens.fourteen,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle textGreyColor60014 = GoogleFonts.roboto(
+    color: ColorsValue.textGreyColor,
     fontSize: Dimens.fourteen,
     fontWeight: FontWeight.w600,
   );
@@ -180,5 +216,22 @@ abstract class Styles {
     color: ColorsValue.blackColor,
     fontSize: Dimens.fourteen,
     fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle blackColorW70014 = GoogleFonts.roboto(
+    color: ColorsValue.blackColor,
+    fontSize: Dimens.fourteen,
+    fontWeight: FontWeight.w700,
+  );
+  static TextStyle appColorW40016 = GoogleFonts.outfit(
+    color: ColorsValue.appColor,
+    fontSize: Dimens.sixteen,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle txtHintColorW40016 = GoogleFonts.outfit(
+    color: ColorsValue.txtHintColor,
+    fontSize: Dimens.sixteen,
+    fontWeight: FontWeight.w400,
   );
 }

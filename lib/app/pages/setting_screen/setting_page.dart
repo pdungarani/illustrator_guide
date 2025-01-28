@@ -1,4 +1,4 @@
 export 'setting_binding.dart';
 export 'setting_presenter.dart';
 export 'setting_controller.dart';
-export 'setting_screen.dart';
+export 'screens/screens.dart';

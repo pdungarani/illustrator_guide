@@ -1,7 +1,7 @@
-import 'package:illustrator_guide/domain/domain.dart';
+import 'package:illustrator_guide/domain/usecases/usecases.dart';
 
 class ShortcutsPresenter {
-  ShortcutsPresenter(this.shortcutsUseCases);
+  ShortcutsPresenter(this.shortcutsUsecases);
 
-  final ShortcutsUseCases shortcutsUseCases;
+  final ShortcutsUsecases shortcutsUsecases;
 }

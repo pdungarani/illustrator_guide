@@ -25,23 +25,27 @@ class LanguageScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           backgroundColor: ColorsValue.appBg,
-          appBar: PreferredSize(
-            preferredSize: Size(double.maxFinite, Dimens.sixty),
-            child: ScreenHeader(
-              onTap: () {
-                Utility.selectedDrawerIndex = 0;
-                controller.update();
-                Get.back();
-              },
-              isVisible: true,
-              image: AssetConstants.back_arrow,
-              width: Dimens.thirty,
-              height: Dimens.thirty,
-              title: "language".tr,
-              txtStyle: Styles.whiteColorW70020,
+          appBar: AppBar(
+            backgroundColor: ColorsValue.appColor,
+            leading: Padding(
+              padding: Dimens.edgeInsets8,
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: ColorsValue.whiteColor,
+                ),
+              ),
+            ),
+            title: Text(
+              "language".tr,
+              style: Styles.whiteColorW70020,
             ),
           ),
           body: ListView.separated(
+            padding: Dimens.edgeInsetsTop10,
             physics: const ClampingScrollPhysics(),
             itemCount: controller.languageList.length,
             itemBuilder: (context, index) {

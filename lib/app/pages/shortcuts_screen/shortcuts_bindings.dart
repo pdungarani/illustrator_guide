@@ -1,10 +1,8 @@
 import 'package:get/get.dart';
-import 'package:illustrator_guide/app/pages/shortcuts_screen/shortcuts_page.dart';
-import 'package:illustrator_guide/domain/domain.dart';
+import 'package:illustrator_guide/app/pages/shortcuts_screen/shortcuts_pages.dart';
+import 'package:illustrator_guide/domain/usecases/usecases.dart';
 
-// coverage:ignore-file
-/// A list of bindings which will be used in the route of [SplashView].
-class ShortcutsBinding extends Bindings {
+class ShortcutsBindings extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<ShortcutsController>(
@@ -12,7 +10,7 @@ class ShortcutsBinding extends Bindings {
         Get.put(
           ShortcutsPresenter(
             Get.put(
-              ShortcutsUseCases(
+              ShortcutsUsecases(
                 Get.find(),
               ),
               permanent: true,

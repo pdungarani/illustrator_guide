@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:illustrator_guide/app/app.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
@@ -103,7 +102,7 @@ class _FullVideoScreenState extends State<FullVideoScreen> {
             top: 12,
             left: 20,
             child: CircleAvatar(
-              backgroundColor: ColorsValue.black2E2B30,
+              backgroundColor: ColorsValue.appColor,
               child: IconButton(
                 onPressed: () {
                   _controller.close();
