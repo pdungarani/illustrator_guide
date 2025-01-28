@@ -14,4 +14,8 @@ abstract class RouteManagement {
         arguments: basicToolsModel,
       );
   static void goToSettingScreen() => Get.toNamed<void>(Routes.settingScreen);
+  static void goTofullScreen(String videoId, bool isVideo) =>
+      Get.toNamed<void>(Routes.fullScreen, arguments: [videoId, isVideo]);
+  static void goToShortcutsScreen() =>
+      Get.toNamed<void>(Routes.shortcutsScreen);
 }

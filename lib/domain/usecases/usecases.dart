@@ -9,3 +9,4 @@ export 'auth_usecases.dart';
 export 'home_usecases.dart';
 export 'setting_usecase.dart';
 export 'splash_usecases.dart';
+export 'shortcuts_useCases.dart';

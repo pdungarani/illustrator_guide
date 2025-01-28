@@ -15,6 +15,7 @@ class BasicToolsModel {
   List<ToolsQuestion>? toolsQuestion;
   bool? isEnabled;
   bool? isAds;
+  String? bannerImage;
 
   BasicToolsModel({
     this.name,
@@ -30,6 +31,7 @@ class BasicToolsModel {
     this.toolsQuestion,
     this.isEnabled = false,
     this.isAds = false,
+    this.bannerImage,
   });
 
   BasicToolsModel.fromJson(Map<String, dynamic> json) {
@@ -44,33 +46,34 @@ class BasicToolsModel {
     if (json['Steps'] != null) {
       steps = <Steps>[];
       json['Steps'].forEach((v) {
-        steps!.add(new Steps.fromJson(v));
+        steps!.add(Steps.fromJson(v));
       });
     }
     if (json['ToolsQuestion'] != null) {
       toolsQuestion = <ToolsQuestion>[];
       json['ToolsQuestion'].forEach((v) {
-        toolsQuestion!.add(new ToolsQuestion.fromJson(v));
+        toolsQuestion!.add(ToolsQuestion.fromJson(v));
       });
     }
+    bannerImage = json['BannerImage'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['icon'] = this.icon;
-    data['video'] = this.video;
-    data['shortcut'] = this.shortcut;
-    data['image'] = this.image;
-    data['widget'] = this.widget;
-    data['flagProperty'] = this.flagProperty;
-    data['Value'] = this.Value;
-    if (this.steps != null) {
-      data['Steps'] = this.steps!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['icon'] = icon;
+    data['video'] = video;
+    data['shortcut'] = shortcut;
+    data['image'] = image;
+    data['widget'] = widget;
+    data['flagProperty'] = flagProperty;
+    data['Value'] = Value;
+    data['bannerImage'] = bannerImage;
+    if (steps != null) {
+      data['Steps'] = steps!.map((v) => v.toJson()).toList();
     }
-    if (this.toolsQuestion != null) {
-      data['ToolsQuestion'] =
-          this.toolsQuestion!.map((v) => v.toJson()).toList();
+    if (toolsQuestion != null) {
+      data['ToolsQuestion'] = toolsQuestion!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -91,9 +94,9 @@ class Steps {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['step'] = this.step;
-    data['shortCut'] = this.shortCut;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['step'] = step;
+    data['shortCut'] = shortCut;
     return data;
   }
 }
@@ -110,9 +113,9 @@ class ToolsQuestion {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Question'] = this.question;
-    data['Answer'] = this.answer;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['Question'] = question;
+    data['Answer'] = answer;
     return data;
   }
 }

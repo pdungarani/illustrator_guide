@@ -8,6 +8,8 @@ abstract class Routes {
   static const toolDetailsScreen = _Paths.toolDetailsScreen;
   static const languageScreen = _Paths.languageScreen;
   static const settingScreen = _Paths.settingScreen;
+  static const fullScreen = _Paths.fullScreen;
+  static const shortcutsScreen = _Paths.shortcutsScreen;
 }
 
 abstract class _Paths {
@@ -18,4 +20,6 @@ abstract class _Paths {
   static const toolDetailsScreen = '/toolDetailsScreen';
   static const languageScreen = '/languageScreen';
   static const settingScreen = '/settingScreen';
+  static const fullScreen = '/fullScreen';
+  static const shortcutsScreen = '/shortcutsScreen';
 }

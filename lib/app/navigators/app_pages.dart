@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
+import 'package:illustrator_guide/app/pages/home_screen/screens/full_video_screen.dart';
 import 'package:illustrator_guide/app/pages/pages.dart';
 import 'package:illustrator_guide/app/pages/setting_screen/setting_page.dart';
+import 'package:illustrator_guide/app/pages/shortcuts_screen/shortcuts_page.dart';
 
 part 'app_routes.dart';
 
@@ -56,6 +58,20 @@ class AppPages {
       transitionDuration: transitionDuration,
       page: SettingScreen.new,
       binding: SettingBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage<FullVideoScreen>(
+      name: _Paths.fullScreen,
+      transitionDuration: transitionDuration,
+      page: FullVideoScreen.new,
+      binding: HomeBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage<ShortcutsScreen>(
+      name: _Paths.shortcutsScreen,
+      transitionDuration: transitionDuration,
+      page: ShortcutsScreen.new,
+      binding: ShortcutsBinding(),
       transition: Transition.fadeIn,
     ),
   ];

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// Will be ignored for test since all are static values and would not change.
 abstract class ColorsValue {
   static Color primaryColor = const Color(0x20C0E8);
-  static Color appColor = const Color(0xFF410404);
+  static Color appColor = const Color(0xFFF7991D);
   static Color transparent = Colors.transparent;
   static Color whiteColor = const Color(0xFFFFFFFF);
   static Color appBg = const Color(0xFFF6F6F6);

@@ -86,6 +86,7 @@ class HomeController extends GetxController {
 
   List<BasicToolsModel> basicToolDetilsList = [
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_move_tool,
       icon: AssetConstants.move_tool,
       name: 'move_tool'.tr,
       steps: [
@@ -111,6 +112,7 @@ class HomeController extends GetxController {
       video: 'FkYfwtIPMPo',
     ),
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_selection_tool,
       icon: AssetConstants.direct_selection_tool,
       name: 'selection_tool'.tr,
       steps: [
@@ -142,6 +144,7 @@ class HomeController extends GetxController {
       video: 'somEUTMlhKI',
     ),
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_pen_tool,
       icon: AssetConstants.pen_tool,
       name: 'pen_tool'.tr,
       steps: [
@@ -173,6 +176,7 @@ class HomeController extends GetxController {
       video: '6YNce6GSjC4',
     ),
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_join_tool,
       icon: AssetConstants.join_tool,
       name: 'join_tool'.tr,
       steps: [
@@ -201,6 +205,7 @@ class HomeController extends GetxController {
       video: '_t-bDpf9tRw',
     ),
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_align_tool,
       icon: AssetConstants.ic_align,
       name: 'align'.tr,
       steps: [
@@ -227,6 +232,7 @@ class HomeController extends GetxController {
       video: 'FkYfwtIPMPo',
     ),
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_pathfinder,
       icon: AssetConstants.pathfinder,
       name: 'pathfinder'.tr,
       steps: [
@@ -264,6 +270,7 @@ class HomeController extends GetxController {
       video: 'vqliIC8eID4',
     ),
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_type_tool,
       icon: AssetConstants.type_tool,
       name: 'type_tool'.tr,
       steps: [
@@ -295,6 +302,7 @@ class HomeController extends GetxController {
       video: 'aEtlyfpV_WM',
     ),
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_clipping_mask,
       icon: AssetConstants.ic_cliping_mask,
       name: 'clipping_mask'.tr,
       steps: [
@@ -323,6 +331,7 @@ class HomeController extends GetxController {
       video: 'AQ1WFyw1ve4',
     ),
     BasicToolsModel(
+      bannerImage: AssetConstants.banner_shape_builder_tool,
       icon: AssetConstants.shape_builder_tool,
       name: 'shape_builder_tool'.tr,
       steps: [
