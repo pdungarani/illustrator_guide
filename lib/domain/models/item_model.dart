@@ -1,5 +1,6 @@
 import 'package:flag/flag.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:illustrator_guide/app/pages/shortcuts_screen/shortcuts_pages.dart';
 
 class ModelBasicTools {
   String? name;
@@ -11,8 +12,10 @@ class ModelBasicTools {
   FlagsCode? flagProperty;
   Locale? locale;
   bool? Value;
+  String? stepsTitle;
   List<Steps>? steps;
   List<ToolsQuestion>? toolsQuestion;
+  List<TypeModel>? typeList;
   bool? isEnabled;
   bool? isAds;
 
@@ -26,6 +29,8 @@ class ModelBasicTools {
     this.flagProperty,
     this.locale,
     this.Value,
+    this.stepsTitle,
+    this.typeList,
     this.steps,
     this.toolsQuestion,
     this.isEnabled = false,
@@ -39,6 +44,8 @@ class ModelBasicTools {
     shortcut = json['shortcut'];
     image = json['image'];
     widget = json['widget'];
+    stepsTitle = json['stepsTitle'];
+    typeList = json["typeList"];
     flagProperty = json['flagProperty'];
     Value = json['Value'];
     if (json['Steps'] != null) {
@@ -65,12 +72,35 @@ class ModelBasicTools {
     data['widget'] = widget;
     data['flagProperty'] = flagProperty;
     data['Value'] = Value;
+    data["stepsTitle"] = stepsTitle;
     if (steps != null) {
       data['Steps'] = steps!.map((v) => v.toJson()).toList();
+    }
+    if (typeList != null) {
+      data['typeList'] = typeList!.map((v) => v.toJson()).toList();
     }
     if (toolsQuestion != null) {
       data['ToolsQuestion'] = toolsQuestion!.map((v) => v.toJson()).toList();
     }
+    return data;
+  }
+}
+
+class TypeModel {
+  String? title;
+  List<TypeQuestion>? shortCuts;
+
+  TypeModel({this.title, this.shortCuts});
+
+  TypeModel.fromJson(Map<String, dynamic> json) {
+    title = json['title'];
+    shortCuts = json['shortCuts'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = title;
+    data['shortCuts'] = shortCuts;
     return data;
   }
 }

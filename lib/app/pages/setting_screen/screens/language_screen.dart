@@ -54,7 +54,6 @@ class LanguageScreen extends StatelessWidget {
                   controller.languageList
                       .forEach((element) => element.Value = false);
                   controller.languageList[index].Value = true;
-                  controller.languageList[index].Value = true;
                   controller.updateLanguage(
                       Locale(controller.languageList[index].widget ?? "en"));
                   controller.setUpdatelanguage(

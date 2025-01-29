@@ -432,13 +432,115 @@ class ShortcutsController extends GetxController
       shortcut: 'Alt+Shift+Ctrl+8',
     ),
   ];
+
   //Type
-  List<ModelBasicTools> typeList = [
-    ModelBasicTools(
-      name: "create_outline".tr,
-      shortcut: 'Shift+Ctrl+O',
+  List<TypeModel> shortcuts = [
+    TypeModel(
+      shortCuts: [
+        TypeQuestion(
+          question: 'create_outline'.tr,
+          answer: 'Shift+Ctrl+O',
+        ),
+      ],
+    ),
+    TypeModel(
+      title: 'insert_special_character_symbols'.tr,
+      shortCuts: [
+        TypeQuestion(
+          question: 'bullet'.tr,
+          answer: 'Alt+8',
+        ),
+        TypeQuestion(
+          question: 'copyright_symbol'.tr,
+          answer: 'Alt+G',
+        ),
+        TypeQuestion(
+          question: 'ellipsis'.tr,
+          answer: 'Alt+;',
+        ),
+        TypeQuestion(
+          question: 'paragraph_symbol'.tr,
+          answer: 'Alt+7',
+        ),
+        TypeQuestion(
+          question: 'registered_trademark_symbol'.tr,
+          answer: 'Alt+R',
+        ),
+        TypeQuestion(
+          question: 'selection_symbol'.tr,
+          answer: 'Alt+6',
+        ),
+        TypeQuestion(
+          question: 'trademark_symbol'.tr,
+          answer: 'Alt+2',
+        ),
+      ],
+    ),
+    TypeModel(
+      title: 'insert_special_character_hyphens_and_dashes'.tr,
+      shortCuts: [
+        TypeQuestion(
+          question: 'em_dash'.tr,
+          answer: 'Alt+Shift+--',
+        ),
+        TypeQuestion(
+          question: 'en_dash'.tr,
+          answer: 'Alt+--',
+        ),
+        TypeQuestion(
+          question: 'discretionary_hyphens'.tr,
+          answer: 'Shift+Ctrl+--',
+        ),
+      ],
+    ),
+    TypeModel(
+      title: 'insert_special_character_question_marks'.tr,
+      shortCuts: [
+        TypeQuestion(
+          question: 'double_left_question_marks'.tr,
+          answer: 'Alt+[',
+        ),
+        TypeQuestion(
+          question: 'double_right_question_marks'.tr,
+          answer: 'Alt+]',
+        ),
+        TypeQuestion(
+          question: 'single_left_question_marks'.tr,
+          answer: 'Alt+]',
+        ),
+        TypeQuestion(
+          question: 'single_right_question_marks'.tr,
+          answer: 'Alt+Shift+]',
+        ),
+      ],
+    ),
+    TypeModel(
+      title: 'insert_whitespace_character'.tr,
+      shortCuts: [
+        TypeQuestion(
+          question: 'en_space'.tr,
+          answer: 'Shift+Ctrl+M',
+        ),
+        TypeQuestion(
+          question: 'em_space'.tr,
+          answer: 'Shift+Ctrl+N',
+        ),
+        TypeQuestion(
+          question: 'thin_space'.tr,
+          answer: 'Alt+Shift+Ctrl+M',
+        ),
+      ],
+    ),
+    TypeModel(
+      shortCuts: [
+        TypeQuestion(
+          question: 'show_hidden_characters'.tr,
+          answer: 'Alt+Ctrl+I',
+        ),
+      ],
     ),
   ];
+
   //Select
   List<ModelBasicTools> selectList = [
     ModelBasicTools(
@@ -588,4 +690,31 @@ class ShortcutsController extends GetxController
       shortcut: 'Alt+Ctrl+"',
     ),
   ];
+
+  // Type
+  List<ModelBasicTools> typeTool = [
+    ModelBasicTools(
+      name: "create_outline".tr,
+      shortcut: 'Shift+Ctrl+O',
+    ),
+  ];
+}
+
+class TypeQuestion {
+  String? question;
+  String? answer;
+
+  TypeQuestion({this.question, this.answer});
+
+  TypeQuestion.fromJson(Map<String, dynamic> json) {
+    question = json['Question'];
+    answer = json['Answer'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['Question'] = question;
+    data['Answer'] = answer;
+    return data;
+  }
 }

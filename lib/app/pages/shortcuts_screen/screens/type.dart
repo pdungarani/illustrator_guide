@@ -10,71 +10,71 @@ class TypeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ShortcutsController>(
       builder: (controller) {
-        return ListView.builder(
-          physics: const ClampingScrollPhysics(),
-          shrinkWrap: true,
-          padding: Dimens.edgeInsets20,
-          itemCount: controller.typeList.length,
-          itemBuilder: (context, index) {
-            return Container(
-              padding: Dimens.edgeInsets10,
-              margin: Dimens.edgeInsetsTop10,
-              decoration: BoxDecoration(
-                color: ColorsValue.containerBg,
-                borderRadius: BorderRadius.circular(
-                  Dimens.ten,
-                ),
+        return Padding(
+          padding: Dimens.edgeInsets16,
+          child: ListView.builder(
+            itemCount: controller.shortcuts.length,
+            itemBuilder: (context, index) {
+              final section = controller.shortcuts[index];
+              return buildShortcutSection(
+                section.title ?? '',
+                section.shortCuts,
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  Widget buildShortcutSection(String title, List<TypeQuestion>? shortcuts) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (title.isNotEmpty)
+          Padding(
+            padding: Dimens.edgeInsets0_8_0_8,
+            child: Text(
+              title,
+              style: Styles.txtBlackColorW60014.copyWith(
+                fontWeight: FontWeight.w700,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+            ),
+          ),
+        Container(
+          padding: Dimens.edgeInsets10,
+          margin: title.isEmpty ? Dimens.edgeInsetsTop10 : Dimens.edgeInsets0,
+          decoration: BoxDecoration(
+            color: ColorsValue.containerBg,
+            borderRadius: BorderRadius.circular(
+              Dimens.ten,
+            ),
+          ),
+          child: Wrap(
+            children: shortcuts!.asMap().entries.map(
+              (e) {
+                final shortcut = e.value;
+                return Padding(
+                  padding: Dimens.edgeInsets0_4_0_4,
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        controller.typeList[index].name ?? "",
+                        shortcut.question ?? '',
                         style: Styles.appColorW60014,
                       ),
-                      Dimens.boxWidth10,
                       Text(
-                        controller.typeList[index].shortcut ?? "",
+                        shortcut.answer ?? '',
                         style: Styles.txtBlackColorW80012,
                       ),
                     ],
                   ),
-                  if (controller.typeList[index].steps?.isNotEmpty ??
-                      false) ...[
-                    ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      padding: Dimens.edgeInsets10,
-                      shrinkWrap: true,
-                      itemCount: controller.typeList[index].steps?.length,
-                      itemBuilder: (context, i) {
-                        return Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              controller.typeList[index].steps?[i].step ?? "",
-                              style: Styles.black2E2B3060014,
-                            ),
-                            Dimens.boxWidth10,
-                            Text(
-                              controller.typeList[index].steps?[i].shortCut ??
-                                  "",
-                              style: Styles.black2E2B3080012,
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                  ],
-                ],
-              ),
-            );
-          },
-        );
-      },
+                );
+              },
+            ).toList(),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -29,7 +29,10 @@ class HomeController extends GetxController {
   onInit() {
     super.onInit();
     networkCheck();
-    language = Get.find<Repository>().getStringValue(LocalKeys.language);
+    language = Get.find<Repository>().getStringValue(LocalKeys.language).isEmpty
+        ? 'en'
+        : Get.find<Repository>().getStringValue(LocalKeys.language);
+    ;
     FirebaseAnalytics.instance.logScreenView(screenName: "HomeScreen");
   }
 

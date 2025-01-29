@@ -296,14 +296,12 @@ class HomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: Dimens.fifty,
-                            width: Dimens.fifty,
                             padding: Dimens.edgeInsets10,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(
                                 Dimens.fiveHundred,
                               ),
-                              color: ColorsValue.appColor.withOpacity(.7),
+                              color: ColorsValue.appColor.withOpacity(0.9),
                             ),
                             child: SvgPicture.asset(
                               item.icon ?? "",
@@ -314,9 +312,11 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           Dimens.boxHeight20,
-                          Text(
-                            item.name ?? "",
-                            style: Styles.appColorW70016,
+                          Flexible(
+                            child: Text(
+                              item.name ?? "",
+                              style: Styles.appColorW70016,
+                            ),
                           ),
                         ],
                       ),

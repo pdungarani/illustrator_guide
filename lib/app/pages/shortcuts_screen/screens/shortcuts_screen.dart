@@ -27,7 +27,7 @@ class ShortcutsScreen extends StatelessWidget {
               ),
             ),
             title: Text(
-              "Shortcuts",
+              "shortcuts".tr,
               style: Styles.appColorW70020,
             ),
             bottom: TabBar(
