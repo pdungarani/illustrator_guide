@@ -13,32 +13,32 @@ class ShortcutsScreen extends StatelessWidget {
         return Scaffold(
           backgroundColor: ColorsValue.whiteColor,
           appBar: AppBar(
-            backgroundColor: ColorsValue.whiteColor,
+            backgroundColor: ColorsValue.appColor,
             leading: Padding(
               padding: Dimens.edgeInsets8,
-              child: CircleAvatar(
-                backgroundColor: ColorsValue.appColor,
-                child: IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: const Icon(Icons.arrow_back),
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: ColorsValue.whiteColor,
                 ),
               ),
             ),
             title: Text(
               "shortcuts".tr,
-              style: Styles.appColorW70020,
+              style: Styles.whiteColorW70020,
             ),
             bottom: TabBar(
               controller: controller.tabController,
-              labelStyle: Styles.appColorW70016,
+              labelStyle: Styles.whiteColorW70016,
               tabAlignment: TabAlignment.start,
               unselectedLabelColor: ColorsValue.textGreyColor,
-              indicatorColor: ColorsValue.appColor,
-              labelColor: ColorsValue.black2E2B30,
+              indicatorColor: ColorsValue.whiteColor,
+              labelColor: ColorsValue.whiteColor,
               isScrollable: true,
-              dividerColor: ColorsValue.txtHintColor,
+              dividerColor: ColorsValue.whiteColor,
               tabs: [
                 Tab(
                   text: 'tool'.tr,

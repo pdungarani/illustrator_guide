@@ -103,6 +103,12 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle blackColorW50016 = GoogleFonts.roboto(
+    color: ColorsValue.blackColor,
+    fontSize: Dimens.sixteen,
+    fontWeight: FontWeight.w500,
+  );
+
   static TextStyle txtBlackColorW80016 = GoogleFonts.roboto(
     color: ColorsValue.txtBlackColor,
     fontSize: Dimens.sixteen,

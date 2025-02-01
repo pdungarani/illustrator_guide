@@ -18,4 +18,8 @@ abstract class RouteManagement {
       Get.toNamed<void>(Routes.fullScreen, arguments: [videoId, isVideo]);
   static void goToShortcutsScreen() =>
       Get.toNamed<void>(Routes.shortcutsScreen);
+  static void goToIntroducationScreen() =>
+      Get.toNamed<void>(Routes.introducationScreen);
+  static void goToComingSoonScreen() =>
+      Get.toNamed<void>(Routes.comingSoonScreen);
 }

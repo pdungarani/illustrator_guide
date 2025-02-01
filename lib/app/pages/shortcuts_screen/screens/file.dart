@@ -14,7 +14,7 @@ class FileScreen extends StatelessWidget {
           physics: const ClampingScrollPhysics(),
           shrinkWrap: true,
           padding: Dimens.edgeInsets20,
-          itemCount: controller.toolList.length,
+          itemCount: controller.fileList.length,
           itemBuilder: (context, index) {
             return Container(
               padding: Dimens.edgeInsets10,
@@ -32,35 +32,35 @@ class FileScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        controller.toolList[index].name ?? "",
+                        controller.fileList[index].name ?? "",
                         style: Styles.appColorW60014,
                       ),
                       Dimens.boxWidth10,
                       Text(
-                        controller.toolList[index].shortcut ?? "",
+                        controller.fileList[index].shortcut ?? "",
                         style: Styles.txtBlackColorW80012,
                       ),
                     ],
                   ),
-                  if (controller.toolList[index].steps?.isNotEmpty ??
+                  if (controller.fileList[index].steps?.isNotEmpty ??
                       false) ...[
                     ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       padding: Dimens.edgeInsets10,
                       shrinkWrap: true,
-                      itemCount: controller.toolList[index].steps?.length,
+                      itemCount: controller.fileList[index].steps?.length,
                       itemBuilder: (context, i) {
                         return Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              controller.toolList[index].steps?[i].step ?? "",
+                              controller.fileList[index].steps?[i].step ?? "",
                               style: Styles.black2E2B3060014,
                             ),
                             Dimens.boxWidth10,
                             Text(
-                              controller.toolList[index].steps?[i].shortCut ??
+                              controller.fileList[index].steps?[i].shortCut ??
                                   "",
                               style: Styles.black2E2B3080012,
                             ),

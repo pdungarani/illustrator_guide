@@ -43,8 +43,10 @@ abstract class AssetConstants {
   static const String check = "assets/svg/check.svg";
   static const String uncheck = "assets/svg/uncheck.svg";
   static const String policy = "assets/svg/policy.svg";
-  static const String ssss = "";
   static const String aiIntroImage = 'assets/image/AI intro Image.webp';
   static const String toolsImage = 'assets/image/newTools.jpg';
   static const String shortcutsImage = 'assets/image/Shortcuts.jpg';
+  static const String banner = 'assets/image/banner.png';
+  static const String coming_soon = "assets/banner/coming_soon.json";
+  static const String ssss = "";
 }

@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Hello, $greetingMessage",
+                        "${'hello'.tr}$greetingMessage",
                         style: Styles.txtBlackColorW70024,
                       ),
                       Dimens.boxHeight5,
@@ -79,47 +79,54 @@ class HomeScreen extends StatelessWidget {
                             ),
                             height: Dimens.twoHundredSixtySix,
                           ),
-                          Container(
-                            padding: Dimens.edgeInsets15,
-                            height: double.maxFinite,
-                            width: double.maxFinite,
-                            decoration: BoxDecoration(
-                              color: ColorsValue.blackColor.withAlpha(90),
-                              borderRadius:
-                                  BorderRadius.circular(Dimens.twenty),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  height: Dimens.fifty,
-                                  width: Dimens.fifty,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.7),
-                                    borderRadius: BorderRadius.circular(
-                                        Dimens.twoHundred),
-                                  ),
-                                  child: const Icon(
-                                    Icons.person,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "introduction".tr,
-                                      style: Styles.whiteColorW70020,
+                          InkWell(
+                            onTap: () {
+                              RouteManagement.goToIntroducationScreen();
+                            },
+                            child: Container(
+                              padding: Dimens.edgeInsets15,
+                              height: double.maxFinite,
+                              width: double.maxFinite,
+                              decoration: BoxDecoration(
+                                color: ColorsValue.blackColor.withAlpha(90),
+                                borderRadius:
+                                    BorderRadius.circular(Dimens.twenty),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    height: Dimens.fifty,
+                                    width: Dimens.fifty,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.7),
+                                      borderRadius: BorderRadius.circular(
+                                          Dimens.twoHundred),
                                     ),
-                                    Text(
-                                      "let's_try_it_now".tr,
-                                      style: Styles.whiteColorW60014,
+                                    child: const Icon(
+                                      Icons.person,
+                                      color: Colors.black,
                                     ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "introduction".tr,
+                                        style: Styles.whiteColorW70020,
+                                      ),
+                                      Text(
+                                        "let's_try_it_now".tr,
+                                        style: Styles.whiteColorW60014,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -145,44 +152,51 @@ class HomeScreen extends StatelessWidget {
                                   height: double.maxFinite,
                                   width: double.maxFinite,
                                 ),
-                                Container(
-                                  padding: Dimens.edgeInsets15,
-                                  height: double.maxFinite,
-                                  width: double.maxFinite,
-                                  decoration: BoxDecoration(
-                                    color: ColorsValue.blackColor.withAlpha(90),
-                                    borderRadius:
-                                        BorderRadius.circular(Dimens.twenty),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        height: Dimens.fifty,
-                                        width: Dimens.fifty,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.7),
-                                          borderRadius: BorderRadius.circular(
-                                              Dimens.twoHundred),
+                                InkWell(
+                                  onTap: () {
+                                    RouteManagement.goToComingSoonScreen();
+                                  },
+                                  child: Container(
+                                    padding: Dimens.edgeInsets15,
+                                    height: double.maxFinite,
+                                    width: double.maxFinite,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          ColorsValue.blackColor.withAlpha(90),
+                                      borderRadius:
+                                          BorderRadius.circular(Dimens.twenty),
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          height: Dimens.fifty,
+                                          width: Dimens.fifty,
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                            color:
+                                                Colors.white.withOpacity(0.7),
+                                            borderRadius: BorderRadius.circular(
+                                                Dimens.twoHundred),
+                                          ),
+                                          child: const Icon(
+                                            Icons.person,
+                                            color: Colors.black,
+                                          ),
                                         ),
-                                        child: const Icon(
-                                          Icons.person,
-                                          color: Colors.black,
+                                        Flexible(
+                                          child: Text(
+                                            "new_tools".tr,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: Styles.whiteColorW70018,
+                                            maxLines: 1,
+                                          ),
                                         ),
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "new_tools".tr,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: Styles.whiteColorW70018,
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],

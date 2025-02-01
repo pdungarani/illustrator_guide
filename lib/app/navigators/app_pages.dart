@@ -74,5 +74,19 @@ class AppPages {
       binding: ShortcutsBindings(),
       transition: Transition.fadeIn,
     ),
+    GetPage<IntroducationScreen>(
+      name: _Paths.introducationScreen,
+      transitionDuration: transitionDuration,
+      page: IntroducationScreen.new,
+      binding: HomeBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage<ComingSoonScreen>(
+      name: _Paths.comingSoonScreen,
+      transitionDuration: transitionDuration,
+      page: ComingSoonScreen.new,
+      binding: HomeBinding(),
+      transition: Transition.fadeIn,
+    ),
   ];
 }

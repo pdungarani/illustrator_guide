@@ -14,6 +14,11 @@ class TranslationsFile extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en': {
+          'hello': 'Hello, ',
+          'good_morning': 'Good Morning!',
+          'good_afternoon': 'Good Afternoon!',
+          'good_evening': 'Good Evening!',
+          'good_night': 'Good Night!',
           'appName': 'Illustrator Guide',
           "login": "Login",
           "login_des": "Please sign in to continue.",
@@ -351,11 +356,24 @@ class TranslationsFile extends Translations {
           'show_grids': 'Show Grides',
           'snap_to_grids': 'Snape To Grides',
           'snap_to_print': 'Snap To Print',
+          "intro":
+              'Adobe Illustrator was first developed in the mid-1980s and has since evolved into one of the most powerful vector graphic software in the world.',
+          "intro1":
+              "Adobe Illustrator is a vector graphics editing software developed by Adobe Inc. It is widely used by graphic designers, illustrators, and artists for creating logos, icons, illustrations, typography, and complex vector artwork. Unlike raster-based programs like Adobe Photoshop, Illustrator works with vector graphics, which are made of paths instead of pixels. This allows designs to be scaled infinitely without losing quality, making it ideal for print and digital media.",
+          "intro2":
+              "Illustrator is widely used in industries such as branding, UI/UX design, fashion, animation, and web design. It is part of Adobe's Creative Cloud (CC) suite and is available for both Windows and macOS.",
+          "intro3":
+              'Adobe Illustrator continues to be the industry standard for vector graphics, helping millions of designers create scalable, high-quality illustrations for various media.',
         },
 
 ////==================================  Gujarat =============================///
 
         'gu': {
+          "hello": "હેલો, ",
+          "good_morning": "સુપ્રભાત!",
+          "good_afternoon": "શુભ બપોર!",
+          "good_evening": "શુભ સંધ્યા!",
+          "good_night": "શુભ રાત્રિ!",
           "appName": "ઈલસ્ટ્રેટર માર્ગદર્શિકા",
           "login": "લૉગિન",
           "login_des": "ચાલુ રાખવા માટે કૃપા કરીને સાઇન ઇન કરો.",
@@ -697,12 +715,25 @@ class TranslationsFile extends Translations {
           "release_grids": "ગ્રિડ્સ મુક્ત કરો",
           "show_grids": "ગ્રિડ્સ બતાવો",
           "snap_to_grids": "ગ્રિડ્સમાં ફીટ કરો",
-          "snap_to_print": "પ્રિન્ટમાં ફીટ કરો"
+          "snap_to_print": "પ્રિન્ટમાં ફીટ કરો",
+          "intro":
+              'Adobe Illustrator પ્રથમ વખત 1980ના દાયકાના મધ્યમાં વિકસાવવામાં આવ્યું હતું અને તે વિશ્વના સૌથી શક્તિશાળી વેક્ટર ગ્રાફિક્સ સોફ્ટવેરમાં ફેરવાયું છે.',
+          "intro1":
+              'Adobe Illustrator એ Adobe Inc. દ્વારા વિકસિત વેક્ટર ગ્રાફિક્સ એડિટિંગ સોફ્ટવેર છે. તે ગ્રાફિક ડિઝાઇનરો, ઇલસ્ટ્રેટરો અને કલાકારો માટે વ્યાપકપણે વપરાય છે, જેમાં લોગોઝ, આયકન્સ, ઇલસ્ટ્રેશન, ટાઇપોગ્રાફી અને જટિલ વેક્ટર આર્ટવર્ક બનાવવામાં આવે છે. Adobe Photoshop જેવા રાસ્ટર-આધારિત પ્રોગ્રામ્સથી વિપરીત, Illustrator વેક્ટર ગ્રાફિક્સ સાથે કાર્ય કરે છે, જે પાથથી બનેલા હોય છે પિક્સલથી નહીં. આ ડિઝાઇનને અનંત રીતે સ્કેલ કરવા દે છે જેણે તેની ગુણવત્તા ગુમાવ્યા વિના છાપકામ અને ડિજિટલ મીડિયા માટે આદર્શ બનાવ્યું છે.',
+          "intro2":
+              'Illustrator બ્રાન્ડિંગ, UI/UX ડિઝાઇન, ફેશન, એનિમેશન અને વેબ ડિઝાઇન જેવી ઉદ્યોગોમાં વ્યાપકપણે ઉપયોગમાં લેવાય છે. તે Adobe ની Creative Cloud (CC) સુઇટનો ભાગ છે અને Windows અને macOS માટે ઉપલબ્ધ છે.',
+          "intro3":
+              'Adobe Illustrator હજુ પણ વેક્ટર ગ્રાફિક્સ માટેનો ઉદ્યોગ ધોરણ તરીકે ગણાય છે, જે લાખો ડિઝાઇનરોને વિવિધ મીડિયા માટે સ્કેલેબલ, ઉચ્ચ-ગુણવત્તાવાળા ઇલસ્ટ્રેશન બનાવવામાં સહાય કરે છે.',
         },
 
 ////==================================  Hindi =============================///
 
         'hi': {
+          "hello": "नमस्ते, ",
+          "good_morning": "सुप्रभात!",
+          "good_afternoon": "शुभ अपराह्न!",
+          "good_evening": "शुभ संध्या!",
+          "good_night": "शुभ रात्रि!",
           "appName": "इलस्ट्रेटर गाइड",
           "login": "लॉगिन",
           "login_des": "जारी रखने के लिए कृपया साइन इन करें।",
@@ -1042,12 +1073,25 @@ class TranslationsFile extends Translations {
           "release_grids": "ग्रिड्स मुक्त करें",
           "show_grids": "ग्रिड्स दिखाएं",
           "snap_to_grids": "ग्रिड्स पर स्नैप करें",
-          "snap_to_print": "प्रिंट पर स्नैप करें"
+          "snap_to_print": "प्रिंट पर स्नैप करें",
+          "intro":
+              "Adobe Illustrator को पहली बार 1980 के दशक के मध्य में विकसित किया गया था और तब से यह दुनिया के सबसे शक्तिशाली वेक्टर ग्राफिक्स सॉफ्टवेयर में से एक बन गया है।",
+          "intro1":
+              "Adobe Illustrator एक वेक्टर ग्राफिक्स एडिटिंग सॉफ्टवेयर है जिसे Adobe Inc. द्वारा विकसित किया गया है। यह ग्राफिक डिजाइनरों, इलस्ट्रेटर्स और कलाकारों द्वारा लोगो, आइकन, इलस्ट्रेशन, टाइपोग्राफी और जटिल वेक्टर आर्टवर्क बनाने के लिए व्यापक रूप से उपयोग किया जाता है। Adobe Photoshop जैसे रास्टर-आधारित प्रोग्रामों के विपरीत, Illustrator वेक्टर ग्राफिक्स के साथ काम करता है, जो पिक्सल के बजाय पथ से बने होते हैं। इससे डिज़ाइनों को बिना गुणवत्ता खोए अनंत रूप से स्केल किया जा सकता है, जिससे यह प्रिंट और डिजिटल मीडिया के लिए आदर्श बन जाता है।",
+          "intro2":
+              "Illustrator का व्यापक रूप से ब्रांडिंग, UI/UX डिज़ाइन, फैशन, एनीमेशन और वेब डिज़ाइन जैसे उद्योगों में उपयोग किया जाता है। यह Adobe के Creative Cloud (CC) सूट का हिस्सा है और Windows तथा macOS दोनों के लिए उपलब्ध है।",
+          "intro3":
+              "Adobe Illustrator अभी भी वेक्टर ग्राफिक्स के लिए उद्योग का मानक बना हुआ है, जिससे लाखों डिज़ाइनरों को विभिन्न मीडिया के लिए स्केलेबल, उच्च-गुणवत्ता वाले इलस्ट्रेशन बनाने में मदद मिलती है।"
         },
 
 ////==================================  German =============================///
 
         'ge': {
+          "hello": "Hallo, ",
+          "good_morning": "Guten Morgen!",
+          "good_afternoon": "Guten Nachmittag!",
+          "good_evening": "Guten Abend!",
+          "good_night": "Gute Nacht!",
           "appName": "Illustrator Guide",
           "login": "Anmelden",
           "login_des": "Bitte melden Sie sich an, um fortzufahren.",
@@ -1394,7 +1438,17 @@ class TranslationsFile extends Translations {
           "release_grids": "Raster freigeben",
           "show_grids": "Raster anzeigen",
           "snap_to_grids": "An Raster ausrichten",
-          "snap_to_print": "An Druck ausrichten"
+          "snap_to_print": "An Druck ausrichten",
+          "intro":
+              "Adobe Illustrator wurde Mitte der 1980er Jahre erstmals entwickelt und hat sich seitdem zu einer der leistungsstärksten Vektorgrafik-Software der Welt entwickelt.",
+          "intro1":
+              "Adobe Illustrator ist eine Vektorgrafik-Bearbeitungssoftware, die von Adobe Inc. entwickelt wurde. Sie wird häufig von Grafikdesignern, Illustratoren und Künstlern verwendet, um Logos, Symbole, Illustrationen, Typografie und komplexe Vektorgrafiken zu erstellen. Im Gegensatz zu rasterbasierten Programmen wie Adobe Photoshop arbeitet Illustrator mit Vektorgrafiken, die aus Pfaden und nicht aus Pixeln bestehen. Dadurch können Designs unbegrenzt skaliert werden, ohne an Qualität zu verlieren, was es ideal für Druck- und digitale Medien macht.",
+          "intro2":
+              "Illustrator wird in Branchen wie Branding, UI/UX-Design, Mode, Animation und Webdesign weit verbreitet eingesetzt. Es ist Teil der Adobe Creative Cloud (CC) Suite und ist sowohl für Windows als auch für macOS verfügbar.",
+          "intro3":
+              "Adobe Illustrator bleibt weiterhin der Industriestandard für Vektorgrafiken und hilft Millionen von Designern, skalierbare, hochwertige Illustrationen für verschiedene Medien zu erstellen."
+
+          ///
         },
       };
 }

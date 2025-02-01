@@ -45,8 +45,8 @@ class SettingScreen extends StatelessWidget {
                   dense: true,
                   leading: SvgPicture.asset(
                     AssetConstants.ic_language,
-                    height: Dimens.thirty,
-                    width: Dimens.thirty,
+                    height: Dimens.twentyFour,
+                    width: Dimens.twentyFour,
                     colorFilter: ColorFilter.mode(
                       ColorsValue.appColor,
                       BlendMode.srcIn,
@@ -66,8 +66,8 @@ class SettingScreen extends StatelessWidget {
                   dense: true,
                   leading: SvgPicture.asset(
                     AssetConstants.policy,
-                    height: Dimens.thirty,
-                    width: Dimens.thirty,
+                    height: Dimens.twentyEight,
+                    width: Dimens.twentyEight,
                     colorFilter: ColorFilter.mode(
                       ColorsValue.appColor,
                       BlendMode.srcIn,
