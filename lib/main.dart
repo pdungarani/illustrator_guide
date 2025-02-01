@@ -68,9 +68,10 @@ class MyApp extends StatelessWidget {
     ]);
 
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarBrightness: Brightness.dark,
-        statusBarColor: ColorsValue.primaryColor,
+      const SystemUiOverlayStyle(
+        statusBarBrightness: Brightness.light,
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
       ),
     );
     return ScreenUtilInit(
@@ -84,7 +85,7 @@ class MyApp extends StatelessWidget {
         locale: getLanguage(),
         themeMode: ThemeMode.light,
         getPages: AppPages.pages,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.splashScreen,
         translations: TranslationsFile(),
         navigatorKey: Get.key,
         enableLog: true,

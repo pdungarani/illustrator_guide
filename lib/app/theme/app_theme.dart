@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:illustrator_guide/app/theme/theme.dart';
 
 ThemeData themeData(BuildContext context) => ThemeData(
       disabledColor: const Color(0xFFEEEEEE),
@@ -13,7 +12,7 @@ ThemeData themeData(BuildContext context) => ThemeData(
         side: BorderSide.none,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         titleTextStyle: TextStyle(
           color: Colors.black,
           fontFamily: 'Product Sans',
@@ -31,12 +30,12 @@ ThemeData themeData(BuildContext context) => ThemeData(
         elevation: 0,
       ),
       primaryColor: const Color(0xFFEA6F00),
-      secondaryHeaderColor: Colors.white,
+      secondaryHeaderColor: Colors.black,
       fontFamily: 'Product Sans',
       brightness: Brightness.light,
       scaffoldBackgroundColor: Colors.transparent,
       colorScheme: ColorScheme.light(
-        surface: Colors.black.withOpacity(.16),
+        surface: Colors.black,
         onInverseSurface: const Color.fromRGBO(0, 0, 0, 0.12),
         primary: const Color(0xFFEA6F00),
       ),

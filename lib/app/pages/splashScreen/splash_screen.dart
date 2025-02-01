@@ -10,11 +10,10 @@ class SplashScreen extends StatelessWidget {
     return GetBuilder<SplashController>(
       builder: (context) {
         return Scaffold(
-          backgroundColor: ColorsValue.appColor,
+          backgroundColor: ColorsValue.whiteColor,
           body: Center(
-            child: Text(
-              "Splash Screen",
-              style: Styles.whiteColorW70020,
+            child: Image.asset(
+              AssetConstants.app_logo,
             ),
           ),
         );

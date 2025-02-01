@@ -22,11 +22,27 @@ class _FullVideoScreenState extends State<FullVideoScreen> {
   void initState() {
     super.initState();
     isBack = Get.arguments[1];
-    _controller = YoutubePlayerController.fromVideoId(
-      videoId: Get.arguments[0],
-      autoPlay: false,
-      params: const YoutubePlayerParams(showFullscreenButton: true),
+
+    _controller = YoutubePlayerController(
+      params: const YoutubePlayerParams(
+        showControls: true,
+        mute: false,
+        showVideoAnnotations: false,
+        showFullscreenButton: true,
+        loop: false,
+      ),
     );
+    _controller.cueVideoById(
+      videoId: Get.arguments[0] ?? "",
+    );
+
+    // _controller = YoutubePlayerController.fromVideoId(
+    //   videoId: Get.arguments[0],
+    //   autoPlay: false,
+    //   params: const YoutubePlayerParams(
+    //     showFullscreenButton: true,
+    //   ),
+    // );
 
     _controller.setFullScreenListener(
       (value) {

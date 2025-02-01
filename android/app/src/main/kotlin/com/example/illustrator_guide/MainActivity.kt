@@ -1,4 +1,4 @@
-package com.illustrartor.illustrator_guide
+package com.illust_learn.illustrator_guide
 
 import io.flutter.embedding.android.FlutterActivity
 

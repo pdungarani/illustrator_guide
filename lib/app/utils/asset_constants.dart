@@ -48,5 +48,6 @@ abstract class AssetConstants {
   static const String shortcutsImage = 'assets/image/Shortcuts.jpg';
   static const String banner = 'assets/image/banner.png';
   static const String coming_soon = "assets/banner/coming_soon.json";
+  static const String app_logo = "assets/image/app_logo.png";
   static const String ssss = "";
 }
