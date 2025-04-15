@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:illustrator_guide/ads/ads_controller.dart';
+import 'package:illustrator_guide/ads/bannerAds_show.dart';
 import 'package:illustrator_guide/app/app.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final adsController = Get.find<AdsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +18,16 @@ class HomeScreen extends StatelessWidget {
     return GetBuilder<HomeController>(
       builder: (controller) {
         return Scaffold(
+          bottomNavigationBar: Obx(() => isLoaded.value
+              ? Container(
+                  alignment: Alignment.center,
+                  width: adsController.bannerAdManager.bannerAd!.size.width
+                      .toDouble(),
+                  height: adsController.bannerAdManager.bannerAd!.size.height
+                      .toDouble(),
+                  child: AdWidget(ad: adsController.bannerAdManager.bannerAd!),
+                )
+              : const SizedBox.shrink()),
           backgroundColor: Colors.white,
           body: ListView(
             padding: Dimens.edgeInsets20.copyWith(top: Dimens.fifty),
@@ -81,6 +96,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
+                              adsController.onRewardAdTrigger();
                               RouteManagement.goToIntroducationScreen();
                             },
                             child: Container(
@@ -154,6 +170,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 InkWell(
                                   onTap: () {
+                                    adsController.onRewardAdTrigger();
                                     RouteManagement.goToComingSoonScreen();
                                   },
                                   child: Container(
@@ -220,8 +237,10 @@ class HomeScreen extends StatelessWidget {
                                   width: double.maxFinite,
                                 ),
                                 InkWell(
-                                  onTap: () =>
-                                      RouteManagement.goToShortcutsScreen(),
+                                  onTap: () {
+                                    adsController.onRewardAdTrigger();
+                                    RouteManagement.goToShortcutsScreen();
+                                  },
                                   child: Container(
                                     padding: Dimens.edgeInsets15,
                                     height: double.maxFinite,
@@ -291,7 +310,8 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   var item = controller.basicToolDetilsList[index];
                   return InkWell(
-                    onTap: () {
+                    onTap: () async {
+                      adsController.onAdTrigger();
                       RouteManagement.goToolDetailsScreen(
                           controller.basicToolDetilsList[index]);
                     },

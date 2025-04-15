@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:illustrator_guide/ads/ads_controller.dart';
 import 'package:illustrator_guide/app/app.dart';
 import 'package:illustrator_guide/data/data.dart';
 import 'package:illustrator_guide/device/device.dart';
@@ -22,6 +24,8 @@ void main() async {
     print("Failed to initialize Firebase: $e");
   }
   await initServices();
+  await MobileAds.instance.initialize();
+  await Utility.fetchData();
   runApp(const MyApp());
 }
 
@@ -57,10 +61,16 @@ class DbService extends GetxService {
   }
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  AdsController adsController = Get.put(AdsController());
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([

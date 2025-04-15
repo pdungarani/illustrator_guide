@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:illustrator_guide/ads/ads_controller.dart';
 import 'package:illustrator_guide/app/app.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class ToolDetailsScreen extends StatelessWidget {
-  const ToolDetailsScreen({super.key});
+  ToolDetailsScreen({super.key});
+
+  final adsController = Get.find<AdsController>();
+  bool hasPlayed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +31,14 @@ class ToolDetailsScreen extends StatelessWidget {
         controller.youtubePlayerController.cueVideoById(
           videoId: controller.basicToolsModel?.video ?? "",
         );
+
+        controller.youtubePlayerController.listen((event) {
+          if (event.playerState == PlayerState.playing && !hasPlayed) {
+            hasPlayed = true;
+            print("Play button clicked!");
+            adsController.onRewardAdTrigger();
+          }
+        });
         controller.youtubePlayerController.setFullScreenListener(
           (value) {},
         );
