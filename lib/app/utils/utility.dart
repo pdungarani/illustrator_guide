@@ -12,6 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:illustrator_guide/ads/ads_controller.dart';
+import 'package:illustrator_guide/ads/models/ads_model.dart';
 import 'package:illustrator_guide/app/app.dart';
 import 'package:illustrator_guide/domain/domain.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -20,6 +22,8 @@ import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+AdsIdsModel adsIdsModel = AdsIdsModel();
 
 abstract class Utility {
   static Directory path = Directory('storage/emulated/0/Fanzly');
@@ -46,6 +50,20 @@ abstract class Utility {
       header.addAll(otherHeader);
     }
     return header;
+  }
+
+  static Future<void> fetchData() async {
+    final url = Uri.parse(
+        'https://illustrator-guides-default-rtdb.firebaseio.com/data.json');
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body) as Map<String, dynamic>;
+      adsIdsModel = AdsIdsModel.fromJson(data);
+       Get.put(AdsController());
+    } else {
+      throw Exception('Failed to load data');
+    }
   }
 
   // coverage:ignore-start
