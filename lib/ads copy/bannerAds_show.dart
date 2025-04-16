@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:illustrator_guide/app/app.dart';
+import 'package:illustrator_guide/app/utils/utils.dart';
 RxBool isLoaded = false.obs;
 class BannerAdManager {
   BannerAd? _bannerAd;
@@ -12,14 +12,14 @@ class BannerAdManager {
   Timer? _retryTimer;
 
   static String adxBannerAdUnitId = adsIdsModel.adx?.bannerAd ??
-      '/23195226677,23207348059/illustratorguides_vedansh_banner';
+      '/23195226677,23207348059/biodatamarker_vedansh_banner';
   static String admobBannerAdUnitId =
-      adsIdsModel.admob?.bannerAd ?? 'ca-app-pub-4389462255518752/2608427982 ';
+      adsIdsModel.admob?.bannerAd ?? 'ca-app-pub-4389462255518752/1845176506';
 
   BannerAd? get bannerAd => _bannerAd;
   bool get isAdAvailable => isLoaded.value;
 
-  void preloadBannerAd({AdSize adSize = AdSize.leaderboard}) {
+  void preloadBannerAd({AdSize adSize = AdSize.banner}) {
     _retryTimer?.cancel(); // Cancel previous retry if running
 
     _loadAdxBannerAd(
