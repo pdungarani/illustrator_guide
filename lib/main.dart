@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:illustrator_guide/ads/ads_controller.dart';
+import 'package:illustrator_guide/ads%20copy/ads_controller.dart';
 import 'package:illustrator_guide/app/app.dart';
 import 'package:illustrator_guide/data/data.dart';
 import 'package:illustrator_guide/device/device.dart';

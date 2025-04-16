@@ -3,8 +3,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:illustrator_guide/ads/ads_controller.dart';
-import 'package:illustrator_guide/ads/bannerAds_show.dart';
+import 'package:illustrator_guide/ads%20copy/ads_controller.dart';
+import 'package:illustrator_guide/ads%20copy/bannerAds_show.dart';
 import 'package:illustrator_guide/app/app.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -96,8 +96,9 @@ class HomeScreen extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              adsController.onRewardAdTrigger();
-                              RouteManagement.goToIntroducationScreen();
+                              adsController.onRewardAdTrigger(onComplete: () {
+                                RouteManagement.goToIntroducationScreen();
+                              });
                             },
                             child: Container(
                               padding: Dimens.edgeInsets15,
@@ -170,8 +171,10 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    adsController.onRewardAdTrigger();
-                                    RouteManagement.goToComingSoonScreen();
+                                    adsController.onRewardAdTrigger(
+                                        onComplete: () {
+                                      RouteManagement.goToComingSoonScreen();
+                                    });
                                   },
                                   child: Container(
                                     padding: Dimens.edgeInsets15,
@@ -238,8 +241,10 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    adsController.onRewardAdTrigger();
-                                    RouteManagement.goToShortcutsScreen();
+                                    adsController.onRewardAdTrigger(
+                                        onComplete: () {
+                                      RouteManagement.goToShortcutsScreen();
+                                    });
                                   },
                                   child: Container(
                                     padding: Dimens.edgeInsets15,
@@ -311,9 +316,12 @@ class HomeScreen extends StatelessWidget {
                   var item = controller.basicToolDetilsList[index];
                   return InkWell(
                     onTap: () async {
-                      adsController.onAdTrigger();
-                      RouteManagement.goToolDetailsScreen(
-                          controller.basicToolDetilsList[index]);
+                      adsController.onAdTrigger(
+                        onComplete: () {
+                          RouteManagement.goToolDetailsScreen(
+                              controller.basicToolDetilsList[index]);
+                        },
+                      );
                     },
                     child: Container(
                       padding: Dimens.edgeInsets15,

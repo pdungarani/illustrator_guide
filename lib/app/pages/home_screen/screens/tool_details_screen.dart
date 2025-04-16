@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:illustrator_guide/ads/ads_controller.dart';
+import 'package:illustrator_guide/ads%20copy/ads_controller.dart';
 import 'package:illustrator_guide/app/app.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
@@ -36,7 +36,7 @@ class ToolDetailsScreen extends StatelessWidget {
           if (event.playerState == PlayerState.playing && !hasPlayed) {
             hasPlayed = true;
             print("Play button clicked!");
-            adsController.onRewardAdTrigger();
+            adsController.onRewardAdTrigger(onComplete: () {});
           }
         });
         controller.youtubePlayerController.setFullScreenListener(
